@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
+<Title> Sheet Encryptor</Title>
   <meta charset="UTF-8">
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style>
+ <style>
 	#hdr{
 		margin: 15px auto;
 		background:white;
@@ -45,7 +46,7 @@
 	<input type="file" id="xlsfile"><br />
 	<br />
 	<textarea id='msg' name="Message" rows="12" cols="80" valign="top" 
-	align="center" style="font-size:15px; border:solid 1px orange;"></textarea>
+	style="font-size:12px; border:solid 1px orange;"></textarea>
 	<br />
 	<input type="button" onClick="resetscreen()" value="Reset"/>
 	<input type="button" onClick="decryption()" value="Decrypt"/>
@@ -81,11 +82,11 @@
 <script>
 let editingTd;
 var tdtag = "";
-var passphrase = '';
 var fpath = "cryptosheet.xlsx";
 var aoa = [['#key','#content']];
 var codedString = "";
 var msg = "";
+var keypass = "passwordkey";
 
 document.getElementById("hdr").style.fontSize = "x-large";
 document.getElementById("result").innerHTML = "";
@@ -109,9 +110,9 @@ table.onclick = function(event) {
 document.querySelector("#xlsfile").addEventListener("change", function () {
     var file = document.querySelector("#xlsfile").files[0];
     var type = file.name.split('.');
-	var arr_keys = [];
-	var arr_items = [];
-	var arr_dict = []
+    var arr_keys = [];
+    var arr_items = [];
+    var arr_dict = []
     if (type[type.length - 1] !== 'xlsx' && type[type.length - 1] !== 'xls') {
       alert('Please select valid excel file.');
 	  document.getElementById("xlsfile").value = "";
@@ -140,10 +141,15 @@ function replace_all(txt, sep) {
 }
 
 function read_keypass() {
-	var keypass = document.getElementById("result").innerHTML;
-	keypass  = keypass.replace('</','<')
-	keypass = replace_all(keypass, '<br>');
-	keypass = replace_all(keypass, '<b>');
+	if (typeof keypass == 'undefined') {
+		keypass = "";
+	}
+	if (keypass=="") {
+		keypass = document.getElementById("result").innerHTML;
+		keypass  = keypass.replace('</','<')
+		keypass = replace_all(keypass, '<br>');
+		keypass = replace_all(keypass, '<b>');
+	}
 	if (keypass.length > 50) {
 		keypass = "";
 	}
@@ -183,8 +189,6 @@ function encryption() {
 	alert("There is nothing to encrypt.");
 	return;		  }		  
   var keypass = read_keypass();
-  if (typeof keypass == 'undefined')
-	keypass = "";
   if (keypass=="") {
 	alert("Please load the passphrase file!");
 	return;
@@ -201,8 +205,6 @@ function decryption() {
 	return;
   }		  
   var keypass = read_keypass();
-  if (typeof keypass == 'undefined')
-	keypass = "";
   if (keypass=="") {
 	alert("Please load the passphrase file!");
 	return;
