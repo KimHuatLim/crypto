@@ -1,6 +1,5 @@
 <html>
 <head>
-<title>Create QR Code</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 <script type="text/javascript" src="jquery.min.js"></script>
@@ -8,7 +7,6 @@
 <style type="text/css">
 body{
     width:100%;
-    text-align:center;
 }
 img{
     border:0;
@@ -30,7 +28,6 @@ img{
     background:white;
 }
 #mp1{
-    text-align:center;
     font-size:35px;
 }
 #header ul{
@@ -83,33 +80,37 @@ function create()
 	}
 	qrcode.makeCode(elText.value);
 }
+function reset() {
+	document.getElementById("qrimage").innerHTML = "";
+	document.getElementById("data").value = "";
+
+}
 </script>
+<h2>QR Code Generator</h2>
 </head>
 
 <body >
 <div id="main">
 <div id="header">
-<p id="mp1">
-QR Code creator
-</p>
 </div>
 <div id="mainbody">
-<p style="font-size:25px;text-align:center;">Create QR Code</p>
-<table border="0" align="center">
+<table border="0" align="left">
 <tr><td>
-<p style="font-size:20px;text-align:center;">Enter URL or text:</p>
-<textarea cols="40" rows="6" id="data"></textarea>
+<p style="font-size:20px;text-align:left;">Enter text to create QR code:</p>
+<textarea cols="60" rows="8" id="data"></textarea>
 </td></tr>
-<tr><td align="center">
+<tr><td align="left">
 <div class="button" onclick="create()">Create</div>
+<div class="button" onclick="reset()">Reset</div>
 </td></tr>
-<tr><td align="center">
-<div id="qrimage">
-</div>
+<tr>
+</br>
+</br>
+<td align="center">
+<div id="qrimage"></div>
 </td></tr>
 </table>
 </div>
 </div>
-
 </body>
 </html>
