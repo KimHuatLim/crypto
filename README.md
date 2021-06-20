@@ -10,3 +10,4 @@ How to install?
 - creates a folder "crypto" in your desktop, download the files into it.
 - just open the html file using your internet browser.
 
+![image](https://user-images.githubusercontent.com/32192638/122661601-98a6ed00-d1be-11eb-885f-6f2f5309f75f.png)
