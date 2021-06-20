@@ -12,5 +12,5 @@ How to install?
 
 ![image](https://user-images.githubusercontent.com/32192638/122661601-98a6ed00-d1be-11eb-885f-6f2f5309f75f.png)
 
-example cryptosheet.xls
+example cryptosheet.xlsx
 ![image](https://user-images.githubusercontent.com/32192638/122661623-c724c800-d1be-11eb-8867-9dfd44f32bd7.png)
