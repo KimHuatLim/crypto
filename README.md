@@ -1,5 +1,10 @@
 # crypto
-Wrote my own webapp for excel sheet encryption.
+
+
+[Sheet Encryption](https://wingsmaker.github.io/crypto/cryptosheet.html)
+
+
+Webapp for excel sheet encryption.
 No need internet access, clean codes.
 It can be also be used for internet isolated machines, as well as personal PC.
 
@@ -14,5 +19,3 @@ How to install?
 
 example cryptosheet.xlsx
 ![image](https://user-images.githubusercontent.com/32192638/122661623-c724c800-d1be-11eb-8867-9dfd44f32bd7.png)
-
-[Text Encryption](https://wingsmaker.github.io/crypto/crypto.html)
