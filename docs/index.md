@@ -15,8 +15,14 @@ See https://github.com/WingsMaker/text_encryptor
 ### QR Code Tools
 
 [QR Code Import](https://wingsmaker.github.io/crypto/qr_import.html)
+
+[QR Code Scan](https://wingsmaker.github.io/crypto/qrscan.html)
+
 [QR Code Generator](https://wingsmaker.github.io/crypto/qrgen.html)
 
+
 See 
+
 https://github.com/WingsMaker/qr_reader
+
 https://github.com/WingsMaker/qr_gen
