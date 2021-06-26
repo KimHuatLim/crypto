@@ -1,6 +1,9 @@
 <html>
 <head>
-<title>Web QR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="utf-8" />
+<meta name="mobile-web-app-capable" content="yes">
+<title>Scan QR</title>
 <style type="text/css">
 body{
     width:100%;
@@ -34,26 +37,9 @@ img{
 #qr-canvas{
     display:none;
 }
-#qrfile{
-    width:320px;
-    height:240px;
-}
 #mp1{
     text-align:center;
     font-size:35px;
-}
-#imghelp{
-    position:relative;
-    left:0px;
-    top:-160px;
-    z-index:100;
-    font:18px arial,sans-serif;
-    background:#f0f0f0;
-	margin-left:35px;
-	margin-right:35px;
-	padding-top:10px;
-	padding-bottom:10px;
-	border-radius:20px;
 }
 .selector{
     margin:0;
@@ -90,19 +76,13 @@ li a{
     text-decoration: none;
     color: black;
 }
-
-#footer a{
-	color: black;
-}
 .tsel{
     padding:0;
 }
 
 </style>
-
 <script type="text/javascript" src="https://wingsmaker.github.io/crypto/webqr.js"></script>
 <script type="text/javascript" src="https://wingsmaker.github.io/crypto/llqrcode.js"></script>
-
 </head>
 
 <body>
@@ -118,20 +98,20 @@ QR Code scanner
 <tr>
 <td valign="top" align="center" width="50%">
 <table class="tsel" border="0">
-<td colspan="2" align="center">
+<tr>
+<td><img class="selector" id="webcamimg" onclick="setwebcam()" align="left" /></td>
+<td><img class="selector" id="qrimg" onclick="setimg()" align="right"/></td></tr>
+<tr><td colspan="2" align="center">
 <div id="outdiv">
 </div></td></tr>
 </table>
 </td>
 </tr>
-<tr>
-<input type="button" onClick="setwebcam()" value="Camera"/>
-<input type="button" onClick="setimg()" value="File"/>
-</tr>
 <tr><td colspan="3" align="center">
 <div id="result"></div>
 </td></tr>
 </table>
+</div>&nbsp;
 </div>
 <canvas id="qr-canvas" width="800" height="600"></canvas>
 <script type="text/javascript">load();</script>
