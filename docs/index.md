@@ -4,13 +4,13 @@
 
 [CryptoSheet](https://wingsmaker.github.io/crypto/cryptosheet.html)
 
-See https://github.com/WingsMaker/crypto
+See [Github for Cryptosheet](https://github.com/WingsMaker/crypto)
 
 ### Text Encryption
 
 [Text Encryption](https://wingsmaker.github.io/crypto/crypto.html)
 
-See https://github.com/WingsMaker/text_encryptor
+See [Github for Text Encryption](https://github.com/WingsMaker/text_encryptor)
 
 ### QR Code Tools
 
@@ -23,6 +23,6 @@ See https://github.com/WingsMaker/text_encryptor
 
 See 
 
-https://github.com/WingsMaker/qr_reader
+[Github for QR Reader](https://github.com/WingsMaker/qr_reader)
 
-https://github.com/WingsMaker/qr_gen
+[Github for QR Generator](https://github.com/WingsMaker/qr_gen)
