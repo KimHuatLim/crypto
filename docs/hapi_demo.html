@@ -266,13 +266,13 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		txt += "<br>setRequestHeader";
 		xhttp.onload  = function() {
 			var resp = this.responseText;
-			var txt = json2html(resp, resp_title);
-			txt += "<br>json2html";
+			//var txt = json2html(resp, resp_title);
+			//txt += "<br>json2html";
 			//document.getElementById("result").innerHTML = txt;
-			//document.getElementById("result").innerHTML = resp;
-		//}
+			document.getElementById("result").innerHTML = resp;
+		}
 		xhttp.send();
-		document.getElementById("result").innerHTML = txt;
+		document.getElementById("hdr").innerHTML = txt;
 	}
 	
 	function github() {
