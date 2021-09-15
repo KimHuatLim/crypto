@@ -264,9 +264,9 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		document.getElementById("result").innerHTML = "";
 		xhttp.onload  = function() {
 			var resp = this.responseText;
-			var txt = json2html(resp, resp_title);
-			document.getElementById("result").innerHTML = txt;
-			document.getElementById("hdr").innerHTML = resp;
+			//var txt = json2html(resp, resp_title);
+			document.getElementById("result").innerHTML = resp;
+			document.getElementById("hdr").innerHTML = apiurl;
 		}
 		xhttp.send();
 	}
