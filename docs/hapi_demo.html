@@ -202,7 +202,8 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		resp_list = resp_list.map(function(x) { return x.split(': ') });
 		resp_list = resp_list.filter(function(x) { return x.length == 2 } );
 		resp_list = resp_list.filter(function(x) { return x[1].length < 120 } );
-		alert( resp_list.toString() );
+		resp_html = resp_list.toString();
+		return resp_html;
 		if ( false ) {
 			var resp_list1 = resp_list;
 			var resp_list2 = resp_list;  
@@ -257,22 +258,18 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		var resp_title = api_name + " history";
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
-		var txt = apiurl;
 		var xhttp = new XMLHttpRequest();
-		txt += "<br>XMLHttpRequest";
 		xhttp.open('POST', apiurl, true);
-		txt += "<br>http post";
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		txt += "<br>setRequestHeader";
+		document.getElementById("result").innerHTML = "";
 		xhttp.onload  = function() {
 			var resp = this.responseText;
-			//var txt = json2html(resp, resp_title);
-			//txt += "<br>json2html";
-			//document.getElementById("result").innerHTML = txt;
-			document.getElementById("result").innerHTML = resp;
+			var txt = json2html(resp, resp_title);
+			txt += "<br>json2html";
+			document.getElementById("result").innerHTML = txt;
+			document.getElementById("hdr").innerHTML = resp;
 		}
 		xhttp.send();
-		document.getElementById("hdr").innerHTML = txt;
 	}
 	
 	function github() {
