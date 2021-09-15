@@ -258,10 +258,10 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		xhttp.open('POST', url, {});
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhttp.onload  = function() {
-			//var resp = this.responseText; 
+			var resp = this.responseText; 
 			//var txt = json2html(resp, resp_title);
 			//document.getElementById("result").innerHTML = txt;
-			//document.getElementById("result").innerHTML = resp;
+			document.getElementById("result").innerHTML = resp;
 		}
 		xhttp.send();
 		alert(url);		
