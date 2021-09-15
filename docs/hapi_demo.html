@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="Infobase.html-web-app-capable" content="yes">
+<style>
+body { font-family: Arial, Helvetica, sans-serif; background-color: white; margin: 0; }
+#dialog{ width: 50%; margin-left: 5%; }
+.fhir { font-family: arial, sans-serif; border-collapse: collapse; max-width: 90%; white-space:nowrap; background-color: #95A5A6 ; }
+</style>
+<base target="_top" />
+
+</head>
+<body>
+<div id="hdr" style="padding:0 16px">  
+  <h3>Infobase for e-Referral processes by Kim Huat</h3>
+  <p>This is a prototype for translating the ACO ICO Requirements into design framework 
+    using <a href="https://open.epic.com/Home/Interoperate">open source EPIC api.</a>.</p>
+</div>
+<hr>
+<br />
+<div id="dialog"><input type="button" value="Main page" onclick="goback()" style="font-size:20px;"/>&nbsp&nbsp
+<input type="button" value="Previous page" onclick="prev_page()" style="font-size:20px;"/>
+</div>
+<br />
+
+<div id="result" style="border: none;"><br><h3>API Information (click on below):</h3>
+<br><a class="blue" onclick="fhir_info('Account','_history')">Account</a>
+<br><a class="blue" onclick="fhir_info('ActivityDefinition','_history')">ActivityDefinition</a>
+<br><a class="blue" onclick="fhir_info('AdverseEvent','_history')">AdverseEvent</a>
+<br><a class="blue" onclick="fhir_info('AllergyIntolerance','_history')">AllergyIntolerance</a>
+<br><a class="blue" onclick="fhir_info('Appointment','_history')">Appointment</a>
+<br><a class="blue" onclick="fhir_info('AppointmentResponse','_history')">AppointmentResponse</a>
+<br><a class="blue" onclick="fhir_info('AuditEvent','_history')">AuditEvent</a>
+<br><a class="blue" onclick="fhir_info('Basic','_history')">Basic</a>
+<br><a class="blue" onclick="fhir_info('Binary','_history')">Binary</a>
+<br><a class="blue" onclick="fhir_info('BiologicallyDerivedProduct','_history')">BiologicallyDerivedProduct</a>
+<br><a class="blue" onclick="fhir_info('BodyStructure','_history')">BodyStructure</a>
+<br><a class="blue" onclick="fhir_info('Bundle','_history')">Bundle</a>
+<br><a class="blue" onclick="fhir_info('CapabilityStatement','_history')">CapabilityStatement</a>
+<br><a class="blue" onclick="fhir_info('CarePlan','_history')">CarePlan</a>
+<br><a class="blue" onclick="fhir_info('CareTeam','_history')">CareTeam</a>
+<br><a class="blue" onclick="fhir_info('CatalogEntry','_history')">CatalogEntry</a>
+<br><a class="blue" onclick="fhir_info('ChargeItem','_history')">ChargeItem</a>
+<br><a class="blue" onclick="fhir_info('ChargeItemDefinition','_history')">ChargeItemDefinition</a>
+<br><a class="blue" onclick="fhir_info('Claim','_history')">Claim</a>
+<br><a class="blue" onclick="fhir_info('ClaimResponse','_history')">ClaimResponse</a>
+<br><a class="blue" onclick="fhir_info('ClinicalImpression','_history')">ClinicalImpression</a>
+<br><a class="blue" onclick="fhir_info('CodeSystem','_history')">CodeSystem</a><br><a class="blue" onclick="fhir_info('Communication','_history')">Communication</a>
+<br><a class="blue" onclick="fhir_info('CommunicationRequest','_history')">CommunicationRequest</a><br><a class="blue" onclick="fhir_info('CompartmentDefinition','_history')">CompartmentDefinition</a><br><a class="blue" onclick="fhir_info('Composition','_history')">Composition</a>
+<br><a class="blue" onclick="fhir_info('ConceptMap','_history')">ConceptMap</a><br><a class="blue" onclick="fhir_info('Condition','_history')">Condition</a><br><a class="blue" onclick="fhir_info('Consent','_history')">Consent</a>
+<br><a class="blue" onclick="fhir_info('Contract','_history')">Contract</a><br><a class="blue" onclick="fhir_info('Coverage','_history')">Coverage</a><br><a class="blue" onclick="fhir_info('CoverageEligibilityRequest','_history')">CoverageEligibilityRequest</a>
+<br><a class="blue" onclick="fhir_info('CoverageEligibilityResponse','_history')">CoverageEligibilityResponse</a><br><a class="blue" onclick="fhir_info('DetectedIssue','_history')">DetectedIssue</a><br><a class="blue" onclick="fhir_info('Device','_history')">Device</a>
+<br><a class="blue" onclick="fhir_info('DeviceDefinition','_history')">DeviceDefinition</a><br><a class="blue" onclick="fhir_info('DeviceMetric','_history')">DeviceMetric</a><br><a class="blue" onclick="fhir_info('DeviceRequest','_history')">DeviceRequest</a>
+<br><a class="blue" onclick="fhir_info('DeviceUseStatement','_history')">DeviceUseStatement</a><br><a class="blue" onclick="fhir_info('DiagnosticReport','_history')">DiagnosticReport</a><br><a class="blue" onclick="fhir_info('DocumentManifest','_history')">DocumentManifest</a>
+<br><a class="blue" onclick="fhir_info('DocumentReference','_history')">DocumentReference</a><br><a class="blue" onclick="fhir_info('EffectEvidenceSynthesis','_history')">EffectEvidenceSynthesis</a><br><a class="blue" onclick="fhir_info('Encounter','_history')">Encounter</a>
+<br><a class="blue" onclick="fhir_info('Endpoint','_history')">Endpoint</a><br><a class="blue" onclick="fhir_info('EnrollmentRequest','_history')">EnrollmentRequest</a><br><a class="blue" onclick="fhir_info('EnrollmentResponse','_history')">EnrollmentResponse</a>
+<br><a class="blue" onclick="fhir_info('EpisodeOfCare','_history')">EpisodeOfCare</a><br><a class="blue" onclick="fhir_info('EventDefinition','_history')">EventDefinition</a><br><a class="blue" onclick="fhir_info('Evidence','_history')">Evidence</a>
+<br><a class="blue" onclick="fhir_info('EvidenceVariable','_history')">EvidenceVariable</a><br><a class="blue" onclick="fhir_info('ExampleScenario','_history')">ExampleScenario</a><br><a class="blue" onclick="fhir_info('ExplanationOfBenefit','_history')">ExplanationOfBenefit</a>
+<br><a class="blue" onclick="fhir_info('FamilyMemberHistory','_history')">FamilyMemberHistory</a><br><a class="blue" onclick="fhir_info('Flag','_history')">Flag</a><br><a class="blue" onclick="fhir_info('Goal','_history')">Goal</a>
+<br><a class="blue" onclick="fhir_info('GraphDefinition','_history')">GraphDefinition</a><br><a class="blue" onclick="fhir_info('Group','_history')">Group</a><br><a class="blue" onclick="fhir_info('GuidanceResponse','_history')">GuidanceResponse</a>
+<br><a class="blue" onclick="fhir_info('HealthcareService','_history')">HealthcareService</a><br><a class="blue" onclick="fhir_info('ImagingStudy','_history')">ImagingStudy</a><br><a class="blue" onclick="fhir_info('Immunization','_history')">Immunization</a>
+<br><a class="blue" onclick="fhir_info('ImmunizationEvaluation','_history')">ImmunizationEvaluation</a><br><a class="blue" onclick="fhir_info('ImmunizationRecommendation','_history')">ImmunizationRecommendation</a>
+<br><a class="blue" onclick="fhir_info('ImplementationGuide','_history')">ImplementationGuide</a><br><a class="blue" onclick="fhir_info('InsurancePlan','_history')">InsurancePlan</a><br><a class="blue" onclick="fhir_info('Invoice','_history')">Invoice</a>
+<br><a class="blue" onclick="fhir_info('Library','_history')">Library</a><br><a class="blue" onclick="fhir_info('Linkage','_history')">Linkage</a><br><a class="blue" onclick="fhir_info('List','_history')">List</a><br><a class="blue" onclick="fhir_info('Location','_history')">Location</a>
+<br><a class="blue" onclick="fhir_info('Measure','_history')">Measure</a><br><a class="blue" onclick="fhir_info('MeasureReport','_history')">MeasureReport</a><br><a class="blue" onclick="fhir_info('Media','_history')">Media</a><br><a class="blue" onclick="fhir_info('Medication','_history')">Medication</a><br><a class="blue" onclick="fhir_info('MedicationAdministration','_history')">MedicationAdministration</a><br><a class="blue" onclick="fhir_info('MedicationDispense','_history')">MedicationDispense</a><br><a class="blue" onclick="fhir_info('MedicationKnowledge','_history')">MedicationKnowledge</a><br><a class="blue" onclick="fhir_info('MedicationRequest','_history')">MedicationRequest</a><br><a class="blue" onclick="fhir_info('MedicationStatement','_history')">MedicationStatement</a><br><a class="blue" onclick="fhir_info('MedicinalProduct','_history')">MedicinalProduct</a><br><a class="blue" onclick="fhir_info('MedicinalProductAuthorization','_history')">MedicinalProductAuthorization</a><br><a class="blue" onclick="fhir_info('MedicinalProductContraindication','_history')">MedicinalProductContraindication</a><br><a class="blue" onclick="fhir_info('MedicinalProductIndication','_history')">MedicinalProductIndication</a><br><a class="blue" onclick="fhir_info('MedicinalProductIngredient','_history')">MedicinalProductIngredient</a><br><a class="blue" onclick="fhir_info('MedicinalProductInteraction','_history')">MedicinalProductInteraction</a><br><a class="blue" onclick="fhir_info('MedicinalProductManufactured','_history')">MedicinalProductManufactured</a><br><a class="blue" onclick="fhir_info('MedicinalProductPackaged','_history')">MedicinalProductPackaged</a><br><a class="blue" onclick="fhir_info('MedicinalProductPharmaceutical','_history')">MedicinalProductPharmaceutical</a><br><a class="blue" onclick="fhir_info('MedicinalProductUndesirableEffect','_history')">MedicinalProductUndesirableEffect</a><br><a class="blue" onclick="fhir_info('MessageDefinition','_history')">MessageDefinition</a><br><a class="blue" onclick="fhir_info('MessageHeader','_history')">MessageHeader</a><br><a class="blue" onclick="fhir_info('MolecularSequence','_history')">MolecularSequence</a><br><a class="blue" onclick="fhir_info('NamingSystem','_history')">NamingSystem</a><br><a class="blue" onclick="fhir_info('NutritionOrder','_history')">NutritionOrder</a><br><a class="blue" onclick="fhir_info('Observation','_history')">Observation</a><br><a class="blue" onclick="fhir_info('ObservationDefinition','_history')">ObservationDefinition</a><br><a class="blue" onclick="fhir_info('OperationDefinition','_history')">OperationDefinition</a><br><a class="blue" onclick="fhir_info('OperationOutcome','_history')">OperationOutcome</a><br><a class="blue" onclick="fhir_info('Organization','_history')">Organization</a><br><a class="blue" onclick="fhir_info('OrganizationAffiliation','_history')">OrganizationAffiliation</a><br><a class="blue" onclick="fhir_info('Parameters','_history')">Parameters</a><br><a class="blue" onclick="fhir_info('Patient','_history')">Patient</a><br><a class="blue" onclick="fhir_info('PaymentNotice','_history')">PaymentNotice</a><br><a class="blue" onclick="fhir_info('PaymentReconciliation','_history')">PaymentReconciliation</a><br><a class="blue" onclick="fhir_info('Person','_history')">Person</a><br><a class="blue" onclick="fhir_info('PlanDefinition','_history')">PlanDefinition</a><br><a class="blue" onclick="fhir_info('Practitioner','_history')">Practitioner</a><br><a class="blue" onclick="fhir_info('PractitionerRole','_history')">PractitionerRole</a><br><a class="blue" onclick="fhir_info('Procedure','_history')">Procedure</a><br><a class="blue" onclick="fhir_info('Provenance','_history')">Provenance</a><br><a class="blue" onclick="fhir_info('Questionnaire','_history')">Questionnaire</a><br><a class="blue" onclick="fhir_info('QuestionnaireResponse','_history')">QuestionnaireResponse</a>
+<br><a class="blue" onclick="fhir_info('RelatedPerson','_history')">RelatedPerson</a><br><a class="blue" onclick="fhir_info('RequestGroup','_history')">RequestGroup</a><br><a class="blue" onclick="fhir_info('ResearchDefinition','_history')">ResearchDefinition</a>
+<br><a class="blue" onclick="fhir_info('ResearchElementDefinition','_history')">ResearchElementDefinition</a><br><a class="blue" onclick="fhir_info('ResearchStudy','_history')">ResearchStudy</a>
+<br><a class="blue" onclick="fhir_info('ResearchSubject','_history')">ResearchSubject</a><br><a class="blue" onclick="fhir_info('RiskAssessment','_history')">RiskAssessment</a>
+<br><a class="blue" onclick="fhir_info('RiskEvidenceSynthesis','_history')">RiskEvidenceSynthesis</a><br><a class="blue" onclick="fhir_info('Schedule','_history')">Schedule</a>
+<br><a class="blue" onclick="fhir_info('SearchParameter','_history')">SearchParameter</a><br><a class="blue" onclick="fhir_info('ServiceRequest','_history')">ServiceRequest</a>
+<br><a class="blue" onclick="fhir_info('Slot','_history')">Slot</a><br><a class="blue" onclick="fhir_info('Specimen','_history')">Specimen</a><br><a class="blue" onclick="fhir_info('SpecimenDefinition','_history')">SpecimenDefinition</a>
+<br><a class="blue" onclick="fhir_info('StructureDefinition','_history')">StructureDefinition</a><br><a class="blue" onclick="fhir_info('StructureMap','_history')">StructureMap</a>
+<br><a class="blue" onclick="fhir_info('Subscription','_history')">Subscription</a><br><a class="blue" onclick="fhir_info('Substance','_history')">Substance</a>
+<br><a class="blue" onclick="fhir_info('SubstanceNucleicAcid','_history')">SubstanceNucleicAcid</a>
+<br><a class="blue" onclick="fhir_info('SubstancePolymer','_history')">SubstancePolymer</a>
+<br><a class="blue" onclick="fhir_info('SubstanceProtein','_history')">SubstanceProtein</a>
+<br><a class="blue" onclick="fhir_info('SubstanceReferenceInformation','_history')">SubstanceReferenceInformation</a>
+<br><a class="blue" onclick="fhir_info('SubstanceSourceMaterial','_history')">SubstanceSourceMaterial</a>
+<br><a class="blue" onclick="fhir_info('SubstanceSpecification','_history')">SubstanceSpecification</a>
+<br><a class="blue" onclick="fhir_info('SupplyDelivery','_history')">SupplyDelivery</a>
+<br><a class="blue" onclick="fhir_info('SupplyRequest','_history')">SupplyRequest</a>
+<br><a class="blue" onclick="fhir_info('Task','_history')">Task</a>
+<br><a class="blue" onclick="fhir_info('TerminologyCapabilities','_history')">TerminologyCapabilities</a>
+<br><a class="blue" onclick="fhir_info('TestReport','_history')">TestReport</a>
+<br><a class="blue" onclick="fhir_info('TestScript','_history')">TestScript</a>
+<br><a class="blue" onclick="fhir_info('ValueSet','_history')">ValueSet</a>
+<br><a class="blue" onclick="fhir_info('VerificationResult','_history')">VerificationResult</a>
+<br><a class="blue" onclick="fhir_info('VisionPrescription','_history')">VisionPrescription</a><br></div>
+<br>
+<br>
+<script>
+	let api_hdr = "http://hapi.fhir.org/baseR4/";
+	let home_url = "https://wingsmaker.github.io/crypto/";
+	let workflow_html = document.getElementById("result").innerHTML;  
+	let prev_html = workflow_html;	
+
+	function goback() {
+		var url = home_url + "Index.html";
+		window.top.location.href = url;
+	}
+
+	function prev_page() {
+		curr_html = document.getElementById("result").innerHTML;
+		document.getElementById("result").innerHTML = ( curr_html == prev_html)? workflow_html : prev_html;
+	}
+
+	function json2html(resp, resp_title) {
+		var ref_pattern = /[A-Z].*[a-z]\/.*[0-9].*[^=]$/;
+		var resp_list = resp.split('\n');
+		resp_list = resp_list.filter(function(x) { return x.includes(":") && x.length > 0 } );
+		resp_list = resp_list.filter(function(x) { return x.split(":")[1].includes('"') } );
+		resp_list = resp_list.map(function(x) { return x.replace('",','').replaceAll('"','') });
+		resp_list = resp_list.map(function(x) { return x.split(': ') });
+		resp_list = resp_list.filter(function(x) { return x.length == 2 } );
+		resp_list = resp_list.filter(function(x) { return x[1].length < 120 } );
+		var resp_list1 = resp_list;
+		var resp_list2 = resp_list;  
+		resp_list1 = resp_list1.filter(function(x) { return (x[1].match(ref_pattern) && x[1].length < 80) } );
+		resp_list2 = resp_list2.filter(function(x) { return (x[1].match(ref_pattern) && x[1].length < 80)?false:true;});
+		var resp_list3 = resp_list1.map(function(x) { return x[1] });
+		resp_list3 = resp_list3.map(function(x) { return x.replaceAll(api_hdr,'') });
+		resp_list3 = resp_list3.filter(function(x) { return x.includes("http://") == false } );
+		resp_list3 = resp_list3.filter(function(x) { return x.match(/^[A-Za-z].*/) } );
+		resp_list3 = resp_list3.map(function(x) { return x.replace('/','_').split('/')[0].replace('_','/') });
+		resp_list3 = resp_list3.sort();  
+		resp_list3 = [...new Set(resp_list3)];
+		var resp_list4 = resp_list3.map(function(x) { return x.split('/')[0] });
+		resp_list4 = resp_list4.sort();
+		resp_list4 = [...new Set(resp_list4)];
+		var resp_txt = "";
+		resp_list4.forEach( function(x){ resp_txt += (x + '<br/>\n&nbsp&nbsp&nbsp' + resp_list3.filter( function(y) { return y.includes( x + '/')} ).map( function(z) { return html_ref(z) }).join('<br/>\n&nbsp&nbsp&nbsp') + '<br/>\n') }) ;
+		resp_html = '<div style="width: 90%; font-size: 16px;"><h2>' + resp_title + '</h2><br/><br/>';
+		if (resp_txt.length > 0 ) {
+		resp_html += '<p>Reference info (click on below):</p>' + resp_txt + '<br/><br/>';
+		} else {
+		resp_html += "<br/>";
+		}
+		resp_html = resp_html + list2html(resp_list) + "</div>";
+		return resp_html;
+	}
+
+	function list2html(resp_list) {
+		var resp_html = resp_list.map(function(x) { return x.map(function(y) { return "<td>" + y + "</td>" })});
+		resp_html = resp_html.map(function(x) { return "<tr>" + x.join('') + "</tr>" });
+		resp_html = '<table class="fhir"><tr><th style="width: 20%">Code</th><th style="width: 70%">Desc</th></tr>' + resp_html.join('') + '</table>';
+		return resp_html;
+	}
+
+	function html_ref(tag) {
+		var ref_pattern = /[A-Z].*[a-z]\/.*[0-9].*[^=]$/;
+		if ( tag.match(ref_pattern) ) {
+			var tag_list = tag.split('/');
+			var varx = tag_list[0];
+			var vary = tag_list[1];
+			var varz = '<a class="blue" onclick="fhir_info(\'' + varx + '\',\'' + vary + '\')">' + vary + '</a>';
+			return varz;
+		}
+		return tag;
+	}
+
+	function fhir_info(api_name,api_data) {
+		var url = api_hdr;
+		var resp_title = "";
+		if (api_data == "") {
+			url += api_name;
+			resp_title = api_name;
+		} else {
+			url += api_name + "/"+ api_data;
+			if (api_data == "_history") {
+				resp_title = api_name + " history";
+			} else {
+				resp_title = api_name + " reference = " + api_data;
+			}    
+		}
+		resp_title = resp_title.replace("_","");
+		var prev_html = document.getElementById("result").innerHTML;
+		var xhttp = new XMLHttpRequest();
+		xhttp.open('POST', url, true);
+		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xhttp.onload  = function() { 
+			var resp = this.responseText; 
+			var txt = json2html(resp, resp_title);
+			document.getElementById("result").innerHTML = txt;
+		}
+		xhttp.send();	
+	}
+</script>
+
+</body>
+</html>
