@@ -254,20 +254,21 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		var url = api_hdr + api_name + "/"+ api_data;
 		var resp_title = api_name + " history";
 		resp_title = resp_title.replace("_","");
-		var prev_html = document.getElementById("result").innerHTML;
+		prev_html = document.getElementById("result").innerHTML;
 		document.getElementById("debug").innerHTML = "Please wait";
-		var xhttp = new XMLHttpRequest();
-		xhttp.open('POST', url, {});
-		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhttp.onload  = function() { 
-			var resp = this.responseText; 
-			var txt = json2html(resp, resp_title);
-			document.getElementById("result").innerHTML = txt;
+		if ( false ) {
+			var xhttp = new XMLHttpRequest();
+			xhttp.open('POST', url, {});
+			xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xhttp.onload  = function() { 
+				var resp = this.responseText; 
+				var txt = json2html(resp, resp_title);
+				document.getElementById("result").innerHTML = txt;
+			}
+			xhttp.send();
+			document.getElementById("debug").innerHTML = "";
 		}
-		xhttp.send();
-		document.getElementById("debug").innerHTML = "";
 	}
 </script>
-
 </body>
 </html>
