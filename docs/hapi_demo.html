@@ -258,7 +258,7 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
 		var xhttp = new XMLHttpRequest();
-		xhttp.open('POST', url, {});
+		xhttp.open('POST', url, true);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhttp.onload  = function() {
 			var resp = this.responseText;
