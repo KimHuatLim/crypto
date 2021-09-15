@@ -257,17 +257,22 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		var resp_title = api_name + " history";
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
-		document.getElementById("result").innerHTML = apiurl;
-		//var xhttp = new XMLHttpRequest();
-		//xhttp.open('POST', apiurl, true);
-		//xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		//xhttp.onload  = function() {
-			//var resp = this.responseText;
-			//var txt = json2html(resp, resp_title);
+		var txt = apiurl;
+		var xhttp = new XMLHttpRequest();
+		txt += "<br>XMLHttpRequest";
+		xhttp.open('POST', apiurl, true);
+		txt += "<br>http post";
+		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		txt += "<br>setRequestHeader";
+		xhttp.onload  = function() {
+			var resp = this.responseText;
+			var txt = json2html(resp, resp_title);
+			txt += "<br>json2html";
 			//document.getElementById("result").innerHTML = txt;
 			//document.getElementById("result").innerHTML = resp;
 		//}
-		//xhttp.send();
+		xhttp.send();
+		document.getElementById("result").innerHTML = txt;
 	}
 	
 	function github() {
