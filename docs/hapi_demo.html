@@ -265,7 +265,6 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		xhttp.onload  = function() {
 			var resp = this.responseText;
 			var txt = json2html(resp, resp_title);
-			txt += "<br>json2html";
 			document.getElementById("result").innerHTML = txt;
 			document.getElementById("hdr").innerHTML = resp;
 		}
