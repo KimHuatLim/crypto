@@ -202,30 +202,33 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		resp_list = resp_list.map(function(x) { return x.split(': ') });
 		resp_list = resp_list.filter(function(x) { return x.length == 2 } );
 		resp_list = resp_list.filter(function(x) { return x[1].length < 120 } );
-		var resp_list1 = resp_list;
-		var resp_list2 = resp_list;  
-		resp_list1 = resp_list1.filter(function(x) { return (x[1].match(ref_pattern) && x[1].length < 80) } );
-		resp_list2 = resp_list2.filter(function(x) { return (x[1].match(ref_pattern) && x[1].length < 80)?false:true;});
-		var resp_list3 = resp_list1.map(function(x) { return x[1] });
-		resp_list3 = resp_list3.map(function(x) { return x.replaceAll(api_hdr,'') });
-		resp_list3 = resp_list3.filter(function(x) { return x.includes("http://") == false } );
-		resp_list3 = resp_list3.filter(function(x) { return x.match(/^[A-Za-z].*/) } );
-		resp_list3 = resp_list3.map(function(x) { return x.replace('/','_').split('/')[0].replace('_','/') });
-		resp_list3 = resp_list3.sort();  
-		resp_list3 = [...new Set(resp_list3)];
-		var resp_list4 = resp_list3.map(function(x) { return x.split('/')[0] });
-		resp_list4 = resp_list4.sort();
-		resp_list4 = [...new Set(resp_list4)];
-		var resp_txt = "";
-		resp_list4.forEach( function(x){ resp_txt += (x + '<br/>\n&nbsp&nbsp&nbsp' + resp_list3.filter( function(y) { return y.includes( x + '/')} ).map( function(z) { return html_ref(z) }).join('<br/>\n&nbsp&nbsp&nbsp') + '<br/>\n') }) ;
-		resp_html = '<div style="width: 90%; font-size: 16px;"><h2>' + resp_title + '</h2><br/><br/>';
-		if (resp_txt.length > 0 ) {
-			resp_html += '<p>Reference info (click on below):</p>' + resp_txt + '<br/><br/>';
-		} else {
-			resp_html += "<br/>";
+		alert( resp_list.toString() );
+		if ( false ) {
+			var resp_list1 = resp_list;
+			var resp_list2 = resp_list;  
+			resp_list1 = resp_list1.filter(function(x) { return (x[1].match(ref_pattern) && x[1].length < 80) } );
+			resp_list2 = resp_list2.filter(function(x) { return (x[1].match(ref_pattern) && x[1].length < 80)?false:true;});
+			var resp_list3 = resp_list1.map(function(x) { return x[1] });
+			resp_list3 = resp_list3.map(function(x) { return x.replaceAll(api_hdr,'') });
+			resp_list3 = resp_list3.filter(function(x) { return x.includes("http://") == false } );
+			resp_list3 = resp_list3.filter(function(x) { return x.match(/^[A-Za-z].*/) } );
+			resp_list3 = resp_list3.map(function(x) { return x.replace('/','_').split('/')[0].replace('_','/') });
+			resp_list3 = resp_list3.sort();  
+			resp_list3 = [...new Set(resp_list3)];
+			var resp_list4 = resp_list3.map(function(x) { return x.split('/')[0] });
+			resp_list4 = resp_list4.sort();
+			resp_list4 = [...new Set(resp_list4)];
+			var resp_txt = "";
+			resp_list4.forEach( function(x){ resp_txt += (x + '<br/>\n&nbsp&nbsp&nbsp' + resp_list3.filter( function(y) { return y.includes( x + '/')} ).map( function(z) { return html_ref(z) }).join('<br/>\n&nbsp&nbsp&nbsp') + '<br/>\n') }) ;
+			var resp_html = '<div style="width: 90%; font-size: 16px;"><h2>' + resp_title + '</h2><br/><br/>';
+			if (resp_txt.length > 0 ) {
+				resp_html += '<p>Reference info (click on below):</p>' + resp_txt + '<br/><br/>';
+			} else {
+				resp_html += "<br/>";
+			}
+			resp_html = resp_html + list2html(resp_list) + "</div>";
+			return resp_html;
 		}
-		resp_html = resp_html + list2html(resp_list) + "</div>";
-		return resp_html;
 	}
 
 	function list2html(resp_list) {
