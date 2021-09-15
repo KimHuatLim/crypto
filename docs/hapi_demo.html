@@ -198,9 +198,9 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 
 	function json2html(resp, resp_title) {
 		var ref_pattern = /[A-Z].*[a-z]\/.*[0-9].*[^=]$/;
-		alert(resp);
+		//alert(resp);
 		var resp_list = resp.split('\n');
-		alert(resp_list);
+		//alert(resp_list);
 		resp_list = resp_list.filter(function(x) { return x.includes(":") && x.length > 0 } );
 		resp_list = resp_list.filter(function(x) { return x.split(":")[1].includes('"') } );
 		resp_list = resp_list.map(function(x) { return x.replace('",','').replaceAll('"','') });
@@ -267,8 +267,9 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 		xhttp.onload  = function() {
 			var resp = this.responseText;
 			if (resp.length > 0) {
-				resp = json2html(resp, resp_title);
-				document.getElementById("result").innerHTML = resp;
+				//resp = json2html(resp, resp_title);
+				//document.getElementById("result").innerHTML = resp;
+				alert(resp);
 			}
 		}
 		xhttp.send();
