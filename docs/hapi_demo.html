@@ -182,7 +182,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 	let workflow_html = document.getElementById("result").innerHTML;  
 	let prev_html = workflow_html;	
 	document.getElementById("prev").style.visibility = "hidden";
-	alert("v0.1.1");
+	alert("v0.1.2");
 
 	function goback() {
 		var url = home_url + "Infobase.html";
@@ -198,9 +198,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 
 	function json2html(resp, resp_title) {
 		var ref_pattern = /[A-Z].*[a-z]\/.*[0-9].*[^=]$/;
-		//alert(resp);
 		var resp_list = resp.split('\n');
-		//alert(resp_list);
 		resp_list = resp_list.filter(function(x) { return x.includes(":") && x.length > 0 } );
 		resp_list = resp_list.filter(function(x) { return x.split(":")[1].includes('"') } );
 		resp_list = resp_list.map(function(x) { return x.replace('",','').replaceAll('"','') });
@@ -261,15 +259,13 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 		var xhttp = new XMLHttpRequest();
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
-		xhttp.open('POST', apiurl, true);
+		xhttp.open('POST', apiurl, false);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		document.getElementById("result").innerHTML = "";
 		xhttp.onload  = function() {
 			var resp = this.responseText;
 			if (resp.length > 0) {
-				//resp = json2html(resp, resp_title);
-				//document.getElementById("result").innerHTML = resp;
-				alert(resp);
+				resp = json2html(resp, resp_title);
+				document.getElementById("result").innerHTML = resp;
 			}
 		}
 		xhttp.send();
