@@ -254,19 +254,23 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 	function fhir_info(api_name) {
 		var resp_title = "";
 		var api_data = "_history";
-		var apiurl = api_hdr + api_name + "/"+ api_data;
+		var apiurl = api_hdr + api_name + "/" + api_data;
 		var resp_title = api_name + " history";
+		var xhttp = new XMLHttpRequest();
+		document.getElementById("hdr").innerHTML = apiurl;
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
-		var xhttp = new XMLHttpRequest();
 		xhttp.open('POST', apiurl, true);
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		document.getElementById("result").innerHTML = "";
 		xhttp.onload  = function() {
 			var resp = this.responseText;
+			if (resp.length == 0) {
+				resp = "<pre>there is no information at the moment.</pre>";
+			}
 			//var txt = json2html(resp, resp_title);
 			document.getElementById("result").innerHTML = resp;
-			document.getElementById("hdr").innerHTML = apiurl;
+			
 		}
 		xhttp.send();
 	}
