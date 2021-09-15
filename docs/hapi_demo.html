@@ -22,7 +22,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 <br />
 <div id="dialog"><input type="button" value="Main page" onclick="goback()" style="font-size:20px;"/>
 &nbsp&nbsp<input type="button" value="Previous page" onclick="prev_page()" style="font-size:20px;"/>
-&nbsp&nbsp<input type="button" value="debug" onclick="task_list()" style="font-size:20px;"/>
+&nbsp&nbsp<input type="button" value="Github" onclick="github()" style="font-size:20px;"/>
 </div>
 <br />
 <br />
@@ -259,16 +259,17 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		xhttp.onload  = function() {
 			var resp = this.responseText; 
-			//var txt = json2html(resp, resp_title);
-			//document.getElementById("result").innerHTML = txt;
-			document.getElementById("result").innerHTML = resp;
+			var txt = json2html(resp, resp_title);
+			document.getElementById("result").innerHTML = txt;
+			//document.getElementById("result").innerHTML = resp;
 		}
 		xhttp.send();
 		alert(url);		
 	}
 	
-	function task_list() {
-		fhir_info("Task");
+	function github() {
+		url = "https://github.com/WingsMaker/crypto/tree/main/docs";
+		window.open(url);
 	}
 </script>
 </body>
