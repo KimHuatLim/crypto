@@ -22,6 +22,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 <br />
 <div id="dialog"><input type="button" value="Main page" onclick="goback()" style="font-size:20px;"/>
 &nbsp&nbsp<input type="button" value="Previous page" onclick="prev_page()" style="font-size:20px;"/>
+&nbsp&nbsp<input type="button" value="debug" onclick="task_list()" style="font-size:20px;"/>
 </div>
 <br />
 <div id="debug"></div>
@@ -255,7 +256,7 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 		var resp_title = api_name + " history";
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
-		document.getElementById("debug").innerHTML = "Please wait";
+		document.getElementById("debug").innerHTML = url;
 		if ( false ) {
 			var xhttp = new XMLHttpRequest();
 			xhttp.open('POST', url, {});
@@ -268,6 +269,10 @@ br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatemen
 			xhttp.send();
 			document.getElementById("debug").innerHTML = "";
 		}
+	}
+	
+	function task_list() {
+		fhir_info("Task");
 	}
 </script>
 </body>
