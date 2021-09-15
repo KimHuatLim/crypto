@@ -20,9 +20,8 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 </div>
 <hr>
 <br />
-<div id="dialog"><input type="button" value="Main page" onclick="goback()" style="font-size:20px;"/>
-&nbsp&nbsp<input type="button" value="Previous page" onclick="prev_page()" style="font-size:20px;"/>
-&nbsp&nbsp<input type="button" value="Github" onclick="github()" style="font-size:20px;"/>
+<div id="dialog"><input type="button" id="up" value="Main page" onclick="goback()" style="font-size:20px;"/>
+&nbsp&nbsp<input type="button" id="prev" value="Previous page" onclick="prev_page()" style="font-size:20px;"/>
 </div>
 <br />
 <br />
@@ -182,6 +181,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 	let home_url = "https://wingsmaker.github.io/crypto/";
 	let workflow_html = document.getElementById("result").innerHTML;  
 	let prev_html = workflow_html;	
+	document.getElementById("prev").style.visibility = "hidden";
 
 	function goback() {
 		var url = home_url + "Infobase.html";
@@ -189,8 +189,10 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 	}
 
 	function prev_page() {
+		var curr_html = document.getElementById("result").innerHTML;
+		document.getElementById("result").innerHTML = ( curr_html == prev_html) ? workflow_html : prev_html;
 		curr_html = document.getElementById("result").innerHTML;
-		document.getElementById("result").innerHTML = ( curr_html == prev_html)? workflow_html : prev_html;
+		document.getElementById("prev").style.visibility = ( curr_html == workflow_html) ? "hidden" : "visible";
 	}
 
 	function json2html(resp, resp_title) {
@@ -225,6 +227,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 			resp_html += "<br/>";
 		}
 		resp_html = resp_html + list2html(resp_list) + "</div>";
+		document.getElementById("prev").style.visibility = "visible";
 		return resp_html;
 	}
 
@@ -253,7 +256,6 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 		var apiurl = api_hdr + api_name + "/" + api_data;
 		var resp_title = api_name + " history";
 		var xhttp = new XMLHttpRequest();
-		document.getElementById("hdr").innerHTML = apiurl;
 		resp_title = resp_title.replace("_","");
 		prev_html = document.getElementById("result").innerHTML;
 		xhttp.open('POST', apiurl, true);
@@ -270,11 +272,6 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 			
 		}
 		xhttp.send();
-	}
-	
-	function github() {
-		url = "https://github.com/WingsMaker/crypto/tree/main/docs";
-		window.open(url);
 	}
 </script>
 </body>
