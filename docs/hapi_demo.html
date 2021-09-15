@@ -263,13 +263,10 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 		document.getElementById("result").innerHTML = "";
 		xhttp.onload  = function() {
 			var resp = this.responseText;
-			if (resp.length == 0) {
-				resp = "<pre>there is no information at the moment.</pre>";
-			} else {
+			if (resp.length > 0) {
 				resp = json2html(resp, resp_title);
+				document.getElementById("result").innerHTML = resp;
 			}
-			document.getElementById("result").innerHTML = resp;
-			
 		}
 		xhttp.send();
 	}
