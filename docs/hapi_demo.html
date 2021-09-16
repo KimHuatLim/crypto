@@ -132,7 +132,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 			var tag_list = tag.split('/');
 			var varx = tag_list[0];
 			var vary = tag_list[1];
-			var varz = '<a class="blue" onclick="fhir_info(\'' + varx + '\',\'' + vary + '\')">' + vary + '</a>';
+			var varz = '<a class="blue" onclick="fhir_api(\'' + varx + '\',\'' + vary + '\')">' + vary + '</a>';
 			return varz;
 		}
 		return tag;
