@@ -138,12 +138,22 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 		return tag;
 	}
 
+	
 	function fhir_info(api_name) {
+		fhir_api(api_name,"_history");    
+	}
+
+	
+	function fhir_api(api_name,api_data) {
 		var apiurl = "https://script.google.com/macros/s/AKfycbxKGMZUHoJHvy9msuk_oaInH85nbkzPVsaNkkHTrIA/dev?page=api_";
 		apiurl += api_name;
+		if ( api_data != "_history" ) {
+			apiurl += "_" + api_data;
+		}
 		prev_html = document.getElementById("result").innerHTML;
 		var resp_title = api_name + " summary";
-		var url = api_hdr + api_name + "/_history";   
+		var url = api_hdr + api_name + "/" + api_data;   
+		document.getElementById("prev").style.visibility = "visible";
 		document.getElementById("result").innerHTML = resp_title + "<br><br>Reference api call<br>&nbsp&nbsp" + url;
 		window.open(apiurl);
 	}
