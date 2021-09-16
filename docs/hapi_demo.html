@@ -140,15 +140,19 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 
 	function fhir_info(api_name) {
 		var apiurl = "https://script.google.com/macros/s/AKfycbxKGMZUHoJHvy9msuk_oaInH85nbkzPVsaNkkHTrIA/dev?page=api_";
-		apiurl += api_name;			
+		apiurl += api_name;
+		prev_html = document.getElementById("result").innerHTML;
+		var resp_title = api_name + " summary";
+		var url = api_hdr + api_name + "/_history";   
+		document.getElementById("result").innerHTML = resp_title + "<br><br>Reference api call<br>&nbsp&nbsp" + url;
 		window.open(apiurl);
 	}
 
 	function fhir_info1(api_name) {
 		var apiurl = api_hdr + api_name + "/_history";   
 		var resp = "";
-		var resp_title = api_name + " summary";    
-			prev_html = document.getElementById("result").innerHTML;
+		var resp_title = api_name + " summary";
+		prev_html = document.getElementById("result").innerHTML;
 		fetch(apiurl)
 			.then( resp => resp.text() )
 			.then( x => json2html(x, resp_title) )
