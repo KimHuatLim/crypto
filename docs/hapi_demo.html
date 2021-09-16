@@ -27,154 +27,42 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 <br />
 
 <div id="result" style="border: none;"><br><h3>API Information:</h3>
-<br><a class="blue" onclick="fhir_info('Account')">Account</a>
-<br><a class="blue" onclick="fhir_info('ActivityDefinition')">ActivityDefinition</a>
-<br><a class="blue" onclick="fhir_info('AdverseEvent')">AdverseEvent</a>
-<br><a class="blue" onclick="fhir_info('AllergyIntolerance')">AllergyIntolerance</a>
-<br><a class="blue" onclick="fhir_info('Appointment')">Appointment</a>
-<br><a class="blue" onclick="fhir_info('AppointmentResponse')">AppointmentResponse</a>
-<br><a class="blue" onclick="fhir_info('AuditEvent')">AuditEvent</a>
-<br><a class="blue" onclick="fhir_info('Basic')">Basic</a>
-<br><a class="blue" onclick="fhir_info('Binary')">Binary</a>
-<br><a class="blue" onclick="fhir_info('BiologicallyDerivedProduct')">BiologicallyDerivedProduct</a>
-<br><a class="blue" onclick="fhir_info('BodyStructure')">BodyStructure</a>
-<br><a class="blue" onclick="fhir_info('Bundle')">Bundle</a>
-<br><a class="blue" onclick="fhir_info('CapabilityStatement')">CapabilityStatement</a>
-<br><a class="blue" onclick="fhir_info('CarePlan')">CarePlan</a>
-<br><a class="blue" onclick="fhir_info('CareTeam')">CareTeam</a>
-<br><a class="blue" onclick="fhir_info('CatalogEntry')">CatalogEntry</a>
-<br><a class="blue" onclick="fhir_info('ChargeItem')">ChargeItem</a>
-<br><a class="blue" onclick="fhir_info('ChargeItemDefinition')">ChargeItemDefinition</a>
-<br><a class="blue" onclick="fhir_info('Claim')">Claim</a>
-<br><a class="blue" onclick="fhir_info('ClaimResponse')">ClaimResponse</a>
-<br><a class="blue" onclick="fhir_info('ClinicalImpression')">ClinicalImpression</a>
-<br><a class="blue" onclick="fhir_info('CodeSystem')">CodeSystem</a>
-<br><a class="blue" onclick="fhir_info('Communication')">Communication</a>
-<br><a class="blue" onclick="fhir_info('CommunicationRequest')">CommunicationRequest</a>
-<br><a class="blue" onclick="fhir_info('CompartmentDefinition')">CompartmentDefinition</a>
-<br><a class="blue" onclick="fhir_info('Composition')">Composition</a>
-<br><a class="blue" onclick="fhir_info('ConceptMap')">ConceptMap</a>
-<br><a class="blue" onclick="fhir_info('Condition')">Condition</a>
-<br><a class="blue" onclick="fhir_info('Consent')">Consent</a>
-<br><a class="blue" onclick="fhir_info('Contract')">Contract</a>
-<br><a class="blue" onclick="fhir_info('Coverage')">Coverage</a>
-<br><a class="blue" onclick="fhir_info('CoverageEligibilityRequest')">CoverageEligibilityRequest</a>
-<br><a class="blue" onclick="fhir_info('CoverageEligibilityResponse')">CoverageEligibilityResponse</a>
-<br><a class="blue" onclick="fhir_info('DetectedIssue')">DetectedIssue</a>
-<br><a class="blue" onclick="fhir_info('Device')">Device</a>
-<br><a class="blue" onclick="fhir_info('DeviceDefinition')">DeviceDefinition</a>
-<br><a class="blue" onclick="fhir_info('DeviceMetric')">DeviceMetric</a>
-<br><a class="blue" onclick="fhir_info('DeviceRequest')">DeviceRequest</a>
-<br><a class="blue" onclick="fhir_info('DeviceUseStatement')">DeviceUseStatement</a>
-<br><a class="blue" onclick="fhir_info('DiagnosticReport')">DiagnosticReport</a>
-<br><a class="blue" onclick="fhir_info('DocumentManifest')">DocumentManifest</a>
-<br><a class="blue" onclick="fhir_info('DocumentReference')">DocumentReference</a>
-<br><a class="blue" onclick="fhir_info('EffectEvidenceSynthesis')">EffectEvidenceSynthesis</a>
-<br><a class="blue" onclick="fhir_info('Encounter')">Encounter</a>
-<br><a class="blue" onclick="fhir_info('Endpoint')">Endpoint</a>
-<br><a class="blue" onclick="fhir_info('EnrollmentRequest')">EnrollmentRequest</a>
-<br><a class="blue" onclick="fhir_info('EnrollmentResponse')">EnrollmentResponse</a>
-<br><a class="blue" onclick="fhir_info('EpisodeOfCare')">EpisodeOfCare</a>
-<br><a class="blue" onclick="fhir_info('EventDefinition')">EventDefinition</a>
-<br><a class="blue" onclick="fhir_info('Evidence')">Evidence</a>
-<br><a class="blue" onclick="fhir_info('EvidenceVariable')">EvidenceVariable</a>
-<br><a class="blue" onclick="fhir_info('ExampleScenario')">ExampleScenario</a>
-<br><a class="blue" onclick="fhir_info('ExplanationOfBenefit')">ExplanationOfBenefit</a>
-<br><a class="blue" onclick="fhir_info('FamilyMemberHistory')">FamilyMemberHistory</a>
-<br><a class="blue" onclick="fhir_info('Flag')">Flag</a>
-<br><a class="blue" onclick="fhir_info('Goal')">Goal</a>
-<br><a class="blue" onclick="fhir_info('GraphDefinition')">GraphDefinition</a>
-<br><a class="blue" onclick="fhir_info('Group')">Group</a>
-<br><a class="blue" onclick="fhir_info('GuidanceResponse')">GuidanceResponse</a>
-<br><a class="blue" onclick="fhir_info('HealthcareService')">HealthcareService</a>
-<br><a class="blue" onclick="fhir_info('ImagingStudy')">ImagingStudy</a>
-<br><a class="blue" onclick="fhir_info('Immunization')">Immunization</a>
-<br><a class="blue" onclick="fhir_info('ImmunizationEvaluation')">ImmunizationEvaluation</a>
-<br><a class="blue" onclick="fhir_info('ImmunizationRecommendation')">ImmunizationRecommendation</a>
-<br><a class="blue" onclick="fhir_info('ImplementationGuide')">ImplementationGuide</a>
-<br><a class="blue" onclick="fhir_info('InsurancePlan')">InsurancePlan</a>
-<br><a class="blue" onclick="fhir_info('Invoice')">Invoice</a>
-<br><a class="blue" onclick="fhir_info('Library')">Library</a>
-<br><a class="blue" onclick="fhir_info('Linkage')">Linkage</a>
-<br><a class="blue" onclick="fhir_info('List')">List</a>
-<br><a class="blue" onclick="fhir_info('Location')">Location</a>
-<br><a class="blue" onclick="fhir_info('Measure')">Measure</a>
-<br><a class="blue" onclick="fhir_info('MeasureReport')">MeasureReport</a>
-<br><a class="blue" onclick="fhir_info('Media')">Media</a>
-<br><a class="blue" onclick="fhir_info('Medication')">Medication</a>
-<br><a class="blue" onclick="fhir_info('MedicationAdministration')">MedicationAdministration</a>
-<br><a class="blue" onclick="fhir_info('MedicationDispense')">MedicationDispense</a>
-<br><a class="blue" onclick="fhir_info('MedicationKnowledge')">MedicationKnowledge</a>
-<br><a class="blue" onclick="fhir_info('MedicationRequest')">MedicationRequest</a>
-<br><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatement</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProduct')">MedicinalProduct</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductAuthorization')">MedicinalProductAuthorization</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductContraindication')">MedicinalProductContraindication</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductIndication')">MedicinalProductIndication</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductIngredient')">MedicinalProductIngredient</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductInteraction')">MedicinalProductInteraction</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductManufactured')">MedicinalProductManufactured</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductPackaged')">MedicinalProductPackaged</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductPharmaceutical')">MedicinalProductPharmaceutical</a>
-<br><a class="blue" onclick="fhir_info('MedicinalProductUndesirableEffect')">MedicinalProductUndesirableEffect</a>
-<br><a class="blue" onclick="fhir_info('MessageDefinition')">MessageDefinition</a>
-<br><a class="blue" onclick="fhir_info('MessageHeader')">MessageHeader</a>
-<br><a class="blue" onclick="fhir_info('MolecularSequence')">MolecularSequence</a>
-<br><a class="blue" onclick="fhir_info('NamingSystem')">NamingSystem</a>
-<br><a class="blue" onclick="fhir_info('NutritionOrder')">NutritionOrder</a>
-<br><a class="blue" onclick="fhir_info('Observation')">Observation</a>
-<br><a class="blue" onclick="fhir_info('ObservationDefinition')">ObservationDefinition</a>
-<br><a class="blue" onclick="fhir_info('OperationDefinition')">OperationDefinition</a>
-<br><a class="blue" onclick="fhir_info('OperationOutcome')">OperationOutcome</a>
-<br><a class="blue" onclick="fhir_info('Organization')">Organization</a>
-<br><a class="blue" onclick="fhir_info('OrganizationAffiliation')">OrganizationAffiliation</a>
-<br><a class="blue" onclick="fhir_info('Parameters')">Parameters</a>
-<br><a class="blue" onclick="fhir_info('Patient')">Patient</a>
-<br><a class="blue" onclick="fhir_info('PaymentNotice')">PaymentNotice</a>
-<br><a class="blue" onclick="fhir_info('PaymentReconciliation')">PaymentReconciliation</a>
-<br><a class="blue" onclick="fhir_info('Person')">Person</a>
-<br><a class="blue" onclick="fhir_info('PlanDefinition')">PlanDefinition</a>
-<br><a class="blue" onclick="fhir_info('Practitioner')">Practitioner</a>
-<br><a class="blue" onclick="fhir_info('PractitionerRole')">PractitionerRole</a>
-<br><a class="blue" onclick="fhir_info('Procedure')">Procedure</a>
-<br><a class="blue" onclick="fhir_info('Provenance')">Provenance</a>
-<br><a class="blue" onclick="fhir_info('Questionnaire')">Questionnaire</a>
-<br><a class="blue" onclick="fhir_info('QuestionnaireResponse')">QuestionnaireResponse</a>
-<br><a class="blue" onclick="fhir_info('RelatedPerson')">RelatedPerson</a>
-<br><a class="blue" onclick="fhir_info('RequestGroup')">RequestGroup</a>
-<br><a class="blue" onclick="fhir_info('ResearchDefinition')">ResearchDefinition</a>
-<br><a class="blue" onclick="fhir_info('ResearchElementDefinition')">ResearchElementDefinition</a>
-<br><a class="blue" onclick="fhir_info('ResearchStudy')">ResearchStudy</a>
-<br><a class="blue" onclick="fhir_info('ResearchSubject')">ResearchSubject</a>
-<br><a class="blue" onclick="fhir_info('RiskAssessment')">RiskAssessment</a>
-<br><a class="blue" onclick="fhir_info('RiskEvidenceSynthesis')">RiskEvidenceSynthesis</a>
-<br><a class="blue" onclick="fhir_info('Schedule')">Schedule</a>
-<br><a class="blue" onclick="fhir_info('SearchParameter')">SearchParameter</a>
-<br><a class="blue" onclick="fhir_info('ServiceRequest')">ServiceRequest</a>
-<br><a class="blue" onclick="fhir_info('Slot')">Slot</a>
-<br><a class="blue" onclick="fhir_info('Specimen')">Specimen</a>
-<br><a class="blue" onclick="fhir_info('SpecimenDefinition')">SpecimenDefinition</a>
-<br><a class="blue" onclick="fhir_info('StructureDefinition')">StructureDefinition</a>
-<br><a class="blue" onclick="fhir_info('StructureMap')">StructureMap</a>
-<br><a class="blue" onclick="fhir_info('Subscription')">Subscription</a>
-<br><a class="blue" onclick="fhir_info('Substance')">Substance</a>
-<br><a class="blue" onclick="fhir_info('SubstanceNucleicAcid')">SubstanceNucleicAcid</a>
-<br><a class="blue" onclick="fhir_info('SubstancePolymer')">SubstancePolymer</a>
-<br><a class="blue" onclick="fhir_info('SubstanceProtein')">SubstanceProtein</a>
-<br><a class="blue" onclick="fhir_info('SubstanceReferenceInformation')">SubstanceReferenceInformation</a>
-<br><a class="blue" onclick="fhir_info('SubstanceSourceMaterial')">SubstanceSourceMaterial</a>
-<br><a class="blue" onclick="fhir_info('SubstanceSpecification')">SubstanceSpecification</a>
-<br><a class="blue" onclick="fhir_info('SupplyDelivery')">SupplyDelivery</a>
-<br><a class="blue" onclick="fhir_info('SupplyRequest')">SupplyRequest</a>
-<br><a class="blue" onclick="fhir_info('Task')">Task</a>
-<br><a class="blue" onclick="fhir_info('TerminologyCapabilities')">TerminologyCapabilities</a>
-<br><a class="blue" onclick="fhir_info('TestReport')">TestReport</a>
-<br><a class="blue" onclick="fhir_info('TestScript')">TestScript</a>
-<br><a class="blue" onclick="fhir_info('ValueSet')">ValueSet</a>
-<br><a class="blue" onclick="fhir_info('VerificationResult')">VerificationResult</a>
-<br><a class="blue" onclick="fhir_info('VisionPrescription')">VisionPrescription</a><br></div>
+<br><table>
+<tr><td><a class="blue" onclick="fhir_info('Account')">Account</a></td><td><a class="blue" onclick="fhir_info('Coverage')">Coverage</a></td><td><a class="blue" onclick="fhir_info('ImagingStudy')">ImagingStudy</a></td><td><a class="blue" onclick="fhir_info('MessageDefinition')">MessageDefinition</a></td><td><a class="blue" onclick="fhir_info('RiskEvidenceSynthesis')">RiskEvidenceSynthesis</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('ActivityDefinition')">ActivityDefinition</a></td><td><a class="blue" onclick="fhir_info('CoverageEligibilityRequest')">CoverageEligibilityRequest</a></td><td><a class="blue" onclick="fhir_info('Immunization')">Immunization</a></td><td><a class="blue" onclick="fhir_info('MessageHeader')">MessageHeader</a></td><td><a class="blue" onclick="fhir_info('Schedule')">Schedule</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('AdverseEvent')">AdverseEvent</a></td><td><a class="blue" onclick="fhir_info('CoverageEligibilityResponse')">CoverageEligibilityResponse</a></td><td><a class="blue" onclick="fhir_info('ImmunizationEvaluation')">ImmunizationEvaluation</a></td><td><a class="blue" onclick="fhir_info('MolecularSequence')">MolecularSequence</a></td><td><a class="blue" onclick="fhir_info('SearchParameter')">SearchParameter</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('AllergyIntolerance')">AllergyIntolerance</a></td><td><a class="blue" onclick="fhir_info('DetectedIssue')">DetectedIssue</a></td><td><a class="blue" onclick="fhir_info('ImmunizationRecommendation')">ImmunizationRecommendation</a></td><td><a class="blue" onclick="fhir_info('NamingSystem')">NamingSystem</a></td><td><a class="blue" onclick="fhir_info('ServiceRequest')">ServiceRequest</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Appointment')">Appointment</a></td><td><a class="blue" onclick="fhir_info('Device')">Device</a></td><td><a class="blue" onclick="fhir_info('ImplementationGuide')">ImplementationGuide</a></td><td><a class="blue" onclick="fhir_info('NutritionOrder')">NutritionOrder</a></td><td><a class="blue" onclick="fhir_info('Slot')">Slot</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('AppointmentResponse')">AppointmentResponse</a></td><td><a class="blue" onclick="fhir_info('DeviceDefinition')">DeviceDefinition</a></td><td><a class="blue" onclick="fhir_info('InsurancePlan')">InsurancePlan</a></td><td><a class="blue" onclick="fhir_info('Observation')">Observation</a></td><td><a class="blue" onclick="fhir_info('Specimen')">Specimen</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('AuditEvent')">AuditEvent</a></td><td><a class="blue" onclick="fhir_info('DeviceMetric')">DeviceMetric</a></td><td><a class="blue" onclick="fhir_info('Invoice')">Invoice</a></td><td><a class="blue" onclick="fhir_info('ObservationDefinition')">ObservationDefinition</a></td><td><a class="blue" onclick="fhir_info('SpecimenDefinition')">SpecimenDefinition</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Basic')">Basic</a></td><td><a class="blue" onclick="fhir_info('DeviceRequest')">DeviceRequest</a></td><td><a class="blue" onclick="fhir_info('Library')">Library</a></td><td><a class="blue" onclick="fhir_info('OperationDefinition')">OperationDefinition</a></td><td><a class="blue" onclick="fhir_info('StructureDefinition')">StructureDefinition</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Binary')">Binary</a></td><td><a class="blue" onclick="fhir_info('DeviceUseStatement')">DeviceUseStatement</a></td><td><a class="blue" onclick="fhir_info('Linkage')">Linkage</a></td><td><a class="blue" onclick="fhir_info('OperationOutcome')">OperationOutcome</a></td><td><a class="blue" onclick="fhir_info('StructureMap')">StructureMap</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('BiologicallyDerivedProduct')">BiologicallyDerivedProduct</a></td><td><a class="blue" onclick="fhir_info('DiagnosticReport')">DiagnosticReport</a></td><td><a class="blue" onclick="fhir_info('List')">List</a></td><td><a class="blue" onclick="fhir_info('Organization')">Organization</a></td><td><a class="blue" onclick="fhir_info('Subscription')">Subscription</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('BodyStructure')">BodyStructure</a></td><td><a class="blue" onclick="fhir_info('DocumentManifest')">DocumentManifest</a></td><td><a class="blue" onclick="fhir_info('Location')">Location</a></td><td><a class="blue" onclick="fhir_info('OrganizationAffiliation')">OrganizationAffiliation</a></td><td><a class="blue" onclick="fhir_info('Substance')">Substance</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Bundle')">Bundle</a></td><td><a class="blue" onclick="fhir_info('DocumentReference')">DocumentReference</a></td><td><a class="blue" onclick="fhir_info('Measure')">Measure</a></td><td><a class="blue" onclick="fhir_info('Parameters')">Parameters</a></td><td><a class="blue" onclick="fhir_info('SubstanceNucleicAcid')">SubstanceNucleicAcid</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CapabilityStatement')">CapabilityStatement</a></td><td><a class="blue" onclick="fhir_info('EffectEvidenceSynthesis')">EffectEvidenceSynthesis</a></td><td><a class="blue" onclick="fhir_info('MeasureReport')">MeasureReport</a></td><td><a class="blue" onclick="fhir_info('Patient')">Patient</a></td><td><a class="blue" onclick="fhir_info('SubstancePolymer')">SubstancePolymer</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CarePlan')">CarePlan</a></td><td><a class="blue" onclick="fhir_info('Encounter')">Encounter</a></td><td><a class="blue" onclick="fhir_info('Media')">Media</a></td><td><a class="blue" onclick="fhir_info('PaymentNotice')">PaymentNotice</a></td><td><a class="blue" onclick="fhir_info('SubstanceProtein')">SubstanceProtein</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CareTeam')">CareTeam</a></td><td><a class="blue" onclick="fhir_info('Endpoint')">Endpoint</a></td><td><a class="blue" onclick="fhir_info('Medication')">Medication</a></td><td><a class="blue" onclick="fhir_info('PaymentReconciliation')">PaymentReconciliation</a></td><td><a class="blue" onclick="fhir_info('SubstanceReferenceInformation')">SubstanceReferenceInformation</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CatalogEntry')">CatalogEntry</a></td><td><a class="blue" onclick="fhir_info('EnrollmentRequest')">EnrollmentRequest</a></td><td><a class="blue" onclick="fhir_info('MedicationAdministration')">MedicationAdministration</a></td><td><a class="blue" onclick="fhir_info('Person')">Person</a></td><td><a class="blue" onclick="fhir_info('SubstanceSourceMaterial')">SubstanceSourceMaterial</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('ChargeItem')">ChargeItem</a></td><td><a class="blue" onclick="fhir_info('EnrollmentResponse')">EnrollmentResponse</a></td><td><a class="blue" onclick="fhir_info('MedicationDispense')">MedicationDispense</a></td><td><a class="blue" onclick="fhir_info('PlanDefinition')">PlanDefinition</a></td><td><a class="blue" onclick="fhir_info('SubstanceSpecification')">SubstanceSpecification</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('ChargeItemDefinition')">ChargeItemDefinition</a></td><td><a class="blue" onclick="fhir_info('EpisodeOfCare')">EpisodeOfCare</a></td><td><a class="blue" onclick="fhir_info('MedicationKnowledge')">MedicationKnowledge</a></td><td><a class="blue" onclick="fhir_info('Practitioner')">Practitioner</a></td><td><a class="blue" onclick="fhir_info('SupplyDelivery')">SupplyDelivery</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Claim')">Claim</a></td><td><a class="blue" onclick="fhir_info('EventDefinition')">EventDefinition</a></td><td><a class="blue" onclick="fhir_info('MedicationRequest')">MedicationRequest</a></td><td><a class="blue" onclick="fhir_info('PractitionerRole')">PractitionerRole</a></td><td><a class="blue" onclick="fhir_info('SupplyRequest')">SupplyRequest</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('ClaimResponse')">ClaimResponse</a></td><td><a class="blue" onclick="fhir_info('Evidence')">Evidence</a></td><td><a class="blue" onclick="fhir_info('MedicationStatement')">MedicationStatement</a></td><td><a class="blue" onclick="fhir_info('Procedure')">Procedure</a></td><td><a class="blue" onclick="fhir_info('Task')">Task</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('ClinicalImpression')">ClinicalImpression</a></td><td><a class="blue" onclick="fhir_info('EvidenceVariable')">EvidenceVariable</a></td><td><a class="blue" onclick="fhir_info('MedicinalProduct')">MedicinalProduct</a></td><td><a class="blue" onclick="fhir_info('Provenance')">Provenance</a></td><td><a class="blue" onclick="fhir_info('TerminologyCapabilities')">TerminologyCapabilities</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CodeSystem')">CodeSystem</a></td><td><a class="blue" onclick="fhir_info('ExampleScenario')">ExampleScenario</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductAuthorization')">MedicinalProductAuthorization</a></td><td><a class="blue" onclick="fhir_info('Questionnaire')">Questionnaire</a></td><td><a class="blue" onclick="fhir_info('TestReport')">TestReport</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Communication')">Communication</a></td><td><a class="blue" onclick="fhir_info('ExplanationOfBenefit')">ExplanationOfBenefit</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductContraindication')">MedicinalProductContraindication</a></td><td><a class="blue" onclick="fhir_info('QuestionnaireResponse')">QuestionnaireResponse</a></td><td><a class="blue" onclick="fhir_info('TestScript')">TestScript</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CommunicationRequest')">CommunicationRequest</a></td><td><a class="blue" onclick="fhir_info('FamilyMemberHistory')">FamilyMemberHistory</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductIndication')">MedicinalProductIndication</a></td><td><a class="blue" onclick="fhir_info('RelatedPerson')">RelatedPerson</a></td><td><a class="blue" onclick="fhir_info('ValueSet')">ValueSet</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('CompartmentDefinition')">CompartmentDefinition</a></td><td><a class="blue" onclick="fhir_info('Flag')">Flag</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductIngredient')">MedicinalProductIngredient</a></td><td><a class="blue" onclick="fhir_info('RequestGroup')">RequestGroup</a></td><td><a class="blue" onclick="fhir_info('VerificationResult')">VerificationResult</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Composition')">Composition</a></td><td><a class="blue" onclick="fhir_info('Goal')">Goal</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductInteraction')">MedicinalProductInteraction</a></td><td><a class="blue" onclick="fhir_info('ResearchDefinition')">ResearchDefinition</a></td><td><a class="blue" onclick="fhir_info('VisionPrescription')">VisionPrescription</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('ConceptMap')">ConceptMap</a></td><td><a class="blue" onclick="fhir_info('GraphDefinition')">GraphDefinition</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductManufactured')">MedicinalProductManufactured</a></td><td><a class="blue" onclick="fhir_info('ResearchElementDefinition')">ResearchElementDefinition</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Condition')">Condition</a></td><td><a class="blue" onclick="fhir_info('Group')">Group</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductPackaged')">MedicinalProductPackaged</a></td><td><a class="blue" onclick="fhir_info('ResearchStudy')">ResearchStudy</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Consent')">Consent</a></td><td><a class="blue" onclick="fhir_info('GuidanceResponse')">GuidanceResponse</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductPharmaceutical')">MedicinalProductPharmaceutical</a></td><td><a class="blue" onclick="fhir_info('ResearchSubject')">ResearchSubject</a></td></tr>
+<tr><td><a class="blue" onclick="fhir_info('Contract')">Contract</a></td><td><a class="blue" onclick="fhir_info('HealthcareService')">HealthcareService</a></td><td><a class="blue" onclick="fhir_info('MedicinalProductUndesirableEffect')">MedicinalProductUndesirableEffect</a></td><td><a class="blue" onclick="fhir_info('RiskAssessment')">RiskAssessment</a></td></tr>
+</table><br>
+<hr>
 <br>
-<br>
+<p><a href="https://script.google.com/macros/s/AKfycbxKGMZUHoJHvy9msuk_oaInH85nbkzPVsaNkkHTrIA/dev">Infobase Google App</a></p>
+<br/>
 
 <script>
 	let api_hdr = "http://hapi.fhir.org/baseR4/";
