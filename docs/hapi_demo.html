@@ -61,7 +61,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 </table><br>
 <hr>
 <br>
-<p><a href="https://script.google.com/macros/s/AKfycbxKGMZUHoJHvy9msuk_oaInH85nbkzPVsaNkkHTrIA/dev">Infobase Google App</a></p>
+&nbsp&nbsp<p><a href="https://script.google.com/macros/s/AKfycbxKGMZUHoJHvy9msuk_oaInH85nbkzPVsaNkkHTrIA/dev">Infobase Google App</a></p>
 <br/>
 
 <script>
@@ -137,25 +137,16 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 		}
 		return tag;
 	}
-
+	
 	function fhir_info(api_name) {
-		var resp_title = "";
-		var api_data = "_history";
-		var apiurl = api_hdr + api_name + "/" + api_data;
-		var resp_title = api_name + " history";
-		var xhttp = new XMLHttpRequest();
-		resp_title = resp_title.replace("_","");
-		prev_html = document.getElementById("result").innerHTML;
-		xhttp.open('POST', apiurl, false);
-		xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhttp.onload  = function() {
-			var resp = this.responseText;
-			if (resp.length > 0) {
-				resp = json2html(resp, resp_title);
-				document.getElementById("result").innerHTML = resp;
-			}
-		}
-		xhttp.send();
+		var apiurl = api_hdr + api_name + "/_history";   
+		var resp = "";
+		var resp_title = api_name + " summary";    
+			prev_html = document.getElementById("result").innerHTML;
+		fetch(apiurl)
+			.then( resp => resp.text() )
+			.then( x => json2html(x, resp_title) )
+			.then( y => document.getElementById("result").innerHTML = y );		
 	}
 </script>
 </body>
