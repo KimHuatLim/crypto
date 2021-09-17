@@ -57,8 +57,8 @@ tr:nth-child(even) { background-color: #F0F3F4 ; }
     <div class="subnav">
       <button class="subnavbtn">About <i class="fa fa-caret-down"></i></button>
       <div class="subnav-content">
-        <a id="aco"  onclick="about_aco()">ACO</a>
-        <a id="ico"  onclick="about_ico()">ICO</a>
+        <a id="aco" onclick="about_aco()">ACO</a>
+        <a id="ico">ICO</a>
       </div>
     </div> 
     <div class="subnav">
@@ -141,11 +141,6 @@ tr:nth-child(even) { background-color: #F0F3F4 ; }
 		show_page(url);
 	}
 
-	function about_ico() {
-		url = "https://www.youtube.com/embed/mz4FFE2y8PM";
-		show_page(url);
-	}
-
 	function about_clr() {
 		url = "https://build.fhir.org/ig/holmesie/bser/InformationExchangeTransactions.html";
 		window.open(url);
@@ -183,6 +178,7 @@ tr:nth-child(even) { background-color: #F0F3F4 ; }
 	document.getElementById("logon").href = home_url + "Logon.html";
 	document.getElementById("patient_search").href = home_url + "patient_search.html";
 	document.getElementById("hapi_demo").href = home_url + "hapi_demo.html";
+	document.getElementById("ico").href = home_url + "About_ICO.html";
 	var workflow_img = "https://wingsmaker.github.io/crypto/Referral.jpg";
 	let workflow_html = '<table style="width: 80%;"><tr><td><img src="' + workflow_img + '" alt="" /></td></tr></table>';  
 	let prev_html = workflow_html;
