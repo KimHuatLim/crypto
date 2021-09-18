@@ -68,53 +68,53 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 <h2>Sheet Encryptor, your offline password manager</h2>
 </div>
 <div id="menu">
-  <div class="navbar" id="myNavbar">
-    <div class="subnav">
-      <button class="subnavbtn">Web Apps<i class="fa fa-caret-down"></i></button>
-      <div class="subnav-content">
-		<a href="https://wingsmaker.github.io/crypto/cryptosheet.html">CryptoSheet</a>
-		<a href="https://wingsmaker.github.io/crypto/crypto.html">Text Encryption</a>
-		<a href="https://github.com/WingsMaker/crypto">Github for Cryptosheet</a>
-		<a href="https://github.com/WingsMaker/text_encryptor">Github for Text Encryptor</a>	  
-      </div>
-    </div> 
-    <div class="subnav">
-      <button class="subnavbtn">QR Apps<i class="fa fa-caret-down"></i></button>
-      <div class="subnav-content">
-		<a href="https://wingsmaker.github.io/crypto/qr_import.html">QR Code Import</a>
-		<a href="https://wingsmaker.github.io/crypto/qrscan.html">QR Code Scan</a>
-		<a href="https://wingsmaker.github.io/crypto/qrgen.html">QR Code Generator</a>
-		<a href="https://github.com/WingsMaker/qr_reader">Github for QR Reader</a>
-		<a href="https://github.com/WingsMaker/qr_gen">Github for QR Code Generator</a>
-      </div>
-    </div> 
-    <div class="subnav">
-      <button class="subnavbtn">Telepot<i class="fa fa-caret-down"></i></button>
-	  <div class="subnav-content">
-		<a href="https://github.com/WingsMaker/telepot">Github for Telepot</a>
-		<a href="https://telepot.readthedocs.io/en/latest/">Telepot - The Telegram API</a>
-      </div>
-    </div> 
-    <div class="subnav">
-      <button class="subnavbtn">Documentations<i class="fa fa-caret-down"></i></button>
-      <div class="subnav-content">        
-		<a href="https://wingsmaker.github.io/crypto/Infobase.html">Infobase</a>
-		<a href="https://github.com/WingsMaker/hapi-fhir">FHIR HAPI</a>
-		<a href="http://hapi.fhir.org/baseR4/swagger-ui/">HAPI Endpoint API</a>
-      </div>
-    </div>
-    <div class="subnav">
-      <button class="subnavbtn">Others<i class="fa fa-caret-down"></i></button>
-	  <div class="subnav-content">
-		<a href="https://wingsmaker.github.io/crypto/ascii-cam.html">Ascii Webcam</a>
-		<a href="https://wingsmaker.github.io/crypto/screen_record.html">Screen Recording</a>
-		<a href="https://github.com/WingsMaker/ResumeRanking">Resume Ranking</a>
-      </div>
-    </div>
-  </div>
 </div>  
 <hr>
 <table style="width: 80%;"><tr><td><img src="https://user-images.githubusercontent.com/32192638/123249539-a391b280-d51b-11eb-818a-69a9e033c02d.png"/></td></tr></table	
 </header>
 </body>
+<script>
+	fetch("https://wingsmaker.github.io/crypto/menu.csv")
+	.then( r => r.text() ) 
+	.then( t => processData(t) );	
+	function processData(csv) {
+		var menu_txt = '<div class="navbar" id="myNavbar">';
+		var menu_grp = '';
+		var menu_item = 0;
+		lines = csv.split("\n");
+		cnt = lines.length;
+		for( ii=0; ii < cnt; ii++ ) {
+			linedata = lines[ii].split(",");
+			if (linedata[0] != '') {
+				if (linedata[0] != menu_grp) {
+					if (linedata[1] == '') {
+						if (menu_item == 0) {
+							menu_txt += '</div></div>';
+						}
+					} else {
+						if (menu_grp != '') {
+							menu_txt += '</div></div>';
+						}
+						menu_grp = linedata[0];
+						menu_txt += '<div class="subnav"><button class="subnavbtn">' + menu_grp;
+						menu_txt += '<i class="fa fa-caret-down"></i></button><div class="subnav-content">';
+					}
+				}
+				if (linedata[1] == '') {
+					menu_txt += '<a href="' + linedata[2]  + '">' + linedata[0] + '</a>';
+					menu_item = 1;
+				} else {
+					url = linedata[2].replace('\r','').replace('\n','');
+					menu_txt += '<a href="' + url  + '">' + linedata[1] + '</a>';
+					menu_item = 0;
+				}
+			}
+		}				
+		if (menu_item == 0) {
+			menu_txt += '</div></div>';
+		}
+		menu_txt += '</div>';
+		document.getElementById("menu").innerHTML = menu_txt;
+	}
+</script>
 </html>
