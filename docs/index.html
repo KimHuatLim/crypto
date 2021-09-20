@@ -60,7 +60,7 @@ ul {
 #google_button {
   position: absolute;
   top: 310px;
-  left: 150px;
+  left: 140px;
   border: 1px solid #dcdcdc;
   border-color: rgba(0, 0, 0, 0.1);
   color: #444!important;
@@ -73,7 +73,7 @@ ul {
 #bing_button {
   position: absolute;
   top: 310px;
-  left: 280px;
+  left: 250px;
   border: 1px solid #dcdcdc;
   border-color: rgba(0, 0, 0, 0.1);
   color: #444!important;
@@ -83,6 +83,29 @@ ul {
   background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
   border-radius: 2px;
 }
+#healthhub_button {
+  position: absolute;
+  top: 310px;
+  left: 340px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+  margin: : 20em;
+}
 
 </style>
 <base target="_top" />
@@ -91,7 +114,7 @@ ul {
 <body>
 <div class="container">
 <h1><a id="a-title" href="https://wingsmaker.github.io/crypto">WingsMaker</a></h1>
-<h2>My life long learning journey in codings.</h2>
+<h2>&nbspMy life long learning journey in codings.</h2>
 </div>
 <div id="menu">
 </div>  
@@ -99,14 +122,14 @@ ul {
 </header>
 
 <div class="mainlogo">
-  <img src="wingsmaker.jpg">
 	<form class="form">
 	<input type="text" id="searchbar" placeholder="Text Search or Type URL" onkeypress='do_searchbar(event)'>
-	<input type="button" value="Google Search" id="google_button" onclick="gsearch()">
-	<input type="button" value="Bing Search" id="bing_button" onclick="bsearch()">
+	<input type="button" value="Google" id="google_button" onclick="do_search('g')">
+	<input type="button" value="Bing" id="bing_button" onclick="do_search('b')">
+	<input type="button" value="HealthHub" id="healthhub_button" onclick="do_search('h')">
 	</form>
 </div>
-<hr>
+
 <div class="footer">
 <p>Powered by WingsMaker</p>
 </div>
@@ -156,27 +179,21 @@ ul {
 	
 	function do_searchbar(e){
 		if(e.keyCode == 13){
-			gsearch();
+			do_search('g');
 		}
 	}
 
-	function bsearch() {
-		var txt  = document.getElementById("searchbar").value;
-		do_search("b",txt);
-	}
-	
-	function gsearch() {
-		var txt  = document.getElementById("searchbar").value;
-		do_search("g",txt);
-	}
-	
-	function do_search(search_mode,txt) {
+	function do_search(search_mode) {
 		var search_prefix = "";
+		var txt  = document.getElementById("searchbar").value;
 		if (search_mode=="g") {
 			search_prefix = "https://www.google.com.sg/search?q=";
 		}
 		if (search_mode=="b") {
-			search_prefix = "https://www.bing.com/search?q=";			
+			search_prefix = "https://www.bing.com/search?q=";		
+		}
+		if (search_mode=="h") {
+			search_prefix = "https://www.healthhub.sg/search?k=";
 		}
 		if (search_prefix != "") {
 			var url = search_prefix + txt.split(' ').filter(function(x) { return x.length > 0 } ).join('+');
