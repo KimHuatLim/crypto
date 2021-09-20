@@ -29,7 +29,7 @@ li a {
 
 #searchbar {
   position: absolute;
-  top: 260px;
+  top: 270px;
   left: 375px;
   width: 580px;
   height: 30px;
@@ -39,7 +39,7 @@ li a {
 #google_button {
   position: absolute;
   top: 310px;
-  left: 550px;
+  left: 440px;
   border: 1px solid #dcdcdc;
   border-color: rgba(0, 0, 0, 0.1);
   color: #444!important;
@@ -53,7 +53,21 @@ li a {
 #bing_button {
   position: absolute;
   top: 310px;
-  left: 680px;
+  left: 550px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+
+#healthhub_button {
+  position: absolute;
+  top: 310px;
+  left: 640px;
   border: 1px solid #dcdcdc;
   border-color: rgba(0, 0, 0, 0.1);
   color: #444!important;
@@ -96,8 +110,9 @@ li a {
 <a href="https://wingsmaker.github.io/crypto/mysearch.html">WingsMaker Search</a>
 <form class="form">
 <input type="text" id="searchbar" placeholder="Text Search or Type URL" onkeypress='do_searchbar(event)'>
-<input type="button" value="Google Search" id="google_button" onclick="gsearch()">
-<input type="button" value="Bing Search" id="bing_button" onclick="bsearch()">
+<input type="button" value="Google" id="google_button" onclick="do_search('g')">
+<input type="button" value="Bing" id="bing_button" onclick="do_search('b')">
+<input type="button" value="HealthHub" id="healthhub_button" onclick="do_search('h')">>
 </form>
 
 </br>
@@ -109,27 +124,21 @@ li a {
 <script>
 	function do_searchbar(e){
 		if(e.keyCode == 13){
-			gsearch();
+			do_search('g');
 		}
 	}
 
-	function bsearch() {
-		var txt  = document.getElementById("searchbar").value;
-		do_search("b",txt);
-	}
-	
-	function gsearch() {
-		var txt  = document.getElementById("searchbar").value;
-		do_search("g",txt);
-	}
-	
-	function do_search(search_mode,txt) {
+	function do_search(search_mode) {
 		var search_prefix = "";
+		var txt  = document.getElementById("searchbar").value;
 		if (search_mode=="g") {
 			search_prefix = "https://www.google.com.sg/search?q=";
 		}
 		if (search_mode=="b") {
-			search_prefix = "https://www.bing.com/search?q=";			
+			search_prefix = "https://www.bing.com/search?q=";		
+		}
+		if (search_mode=="h") {
+			search_prefix = "https://www.healthhub.sg/search?k=";
 		}
 		if (search_prefix != "") {
 			var url = search_prefix + txt.split(' ').filter(function(x) { return x.length > 0 } ).join('+');
