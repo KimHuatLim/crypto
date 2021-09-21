@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/crypto/assets/css/style.css?v=dd19e085006208ac196126f25eba19b4174ff7e5">
+<title>Welcome to WingsMaker-crypto | crypto</title>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; background-color: white; margin: 0; }
+.navbar { overflow: hidden; background-color: #333; }
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.menu { font-size: 16px; } 
+.subnav { float: left; overflow: hidden; }
+.subnav .subnavbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.navbar a:hover, .subnav:hover .subnavbtn { background-color: red; }
+.subnav-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: red;
+  font-size: 16px;
+  width: 80%;
+  z-index: 1;
+}
+.subnav-content a { float: left; color: white; text-decoration: none; font-size: 16px;}
+.subnav-content a:hover { background-color: #eee; color: black; }
+.subnav:hover .subnav-content { display: block; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+#searchbar {
+  position: absolute;
+  top: 260px;
+  left: 20px;
+  width: 320px;
+  height: 30px;
+  border: 1px solid #cdcdcd;
+}
+#google_button {
+  position: absolute;
+  top: 310px;
+  left: 40px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+#bing_button {
+  position: absolute;
+  top: 310px;
+  left: 150px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+#healthhub_button {
+  position: absolute;
+  top: 310px;
+  left: 240px;
+  border: 1px solid #dcdcdc;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #444!important;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 8px;
+  background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  border-radius: 2px;
+}
+
+</style>
+<base target="_top" />
+</head>
+
+<body>
+<div class="container">
+<h1><a id="a-title" href="https://wingsmaker.github.io/crypto">WingsMaker</a></h1>
+<h2>&nbspMy life long learning journey in codings.</h2>
+</div>
+<div id="menu">
+</div>  
+<hr>
+</header>
+
+<div class="mainlogo">
+	<form class="form">
+	<input type="text" id="searchbar" placeholder="Text Search or Type URL" onkeypress='do_searchbar(event)'>
+	<input type="button" value="Google" id="google_button" onclick="do_search('g')">
+	<input type="button" value="Bing" id="bing_button" onclick="do_search('b')">
+	<input type="button" value="HealthHub" id="healthhub_button" onclick="do_search('h')">
+	</form>
+</div>
+<hr>
+
+
+</body>
+<script>
+	fetch("https://wingsmaker.github.io/crypto/menu.csv").then( r => r.text() ).then( t => processData(t) );
+	function processData(csv) {
+		var menu_txt = '<div class="navbar" id="myNavbar">';
+		var menu_grp = '';
+		var menu_item = 0;
+		lines = csv.split("\n");
+		cnt = lines.length;
+		for( ii=0; ii < cnt; ii++ ) {
+			linedata = lines[ii].split(",");
+			if (linedata[0] != '') {
+				if (linedata[0] != menu_grp) {
+					if (linedata[1] == '') {
+						if (menu_item == 0) {
+							menu_txt += '</div></div>';
+						}
+					} else {
+						if (menu_grp != '') {
+							menu_txt += '</div></div>';
+						}
+						menu_grp = linedata[0];
+						menu_txt += '<div class="subnav"><button class="subnavbtn">' + menu_grp;
+						menu_txt += '<i class="fa fa-caret-down"></i></button><div class="subnav-content">';
+					}
+				}
+				if (linedata[1] == '') {
+					menu_txt += '<a href="' + linedata[2]  + '">' + linedata[0] + '</a>';
+					menu_item = 1;
+				} else {
+					url = linedata[2].replace('\r','').replace('\n','');
+					menu_txt += '<a href="' + url  + '">' + linedata[1] + '</a>';
+					menu_item = 0;
+				}
+			}
+		}				
+		if (menu_item == 0) {
+			menu_txt += '</div></div>';
+		}
+		menu_txt += '</div>';
+		document.getElementById("menu").innerHTML = menu_txt;
+	}
+	
+	function do_searchbar(e){
+		if(e.keyCode == 13){
+			do_search('g');
+		}
+	}
+
+	function do_search(search_mode) {
+		var search_prefix = "";
+		var txt  = document.getElementById("searchbar").value;
+		if (search_mode=="g") {
+			search_prefix = "https://www.google.com.sg/search?q=";
+		}
+		if (search_mode=="b") {
+			search_prefix = "https://www.bing.com/search?q=";		
+		}
+		if (search_mode=="h") {
+			search_prefix = "https://www.healthhub.sg/search?k=";
+		}
+		if (search_prefix != "") {
+			var url = search_prefix + txt.split(' ').filter(function(x) { return x.length > 0 } ).join('+');
+			window.open(url);
+		}
+	}
+</script>
+</html>
