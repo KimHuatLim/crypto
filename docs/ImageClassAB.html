@@ -65,8 +65,6 @@ let imagesOfB = 0;
 let classificationResult;
 let nClassAinARow = 0;
 let nClassBinARow = 0;
-document.getElementById("train").style.visibility='hidden';
-document.getElementById("buttonPredict").style.visibility='hidden';
 
 function setup() {
   createCanvas(640, 480);
@@ -138,9 +136,6 @@ function setupButtons() {
   buttonA.mousePressed(function() {
     classifier.addImage('A');
     select('#amountOfAImages').html(imagesOfA++);
-	if (imagesOfA > 20) {
-		document.getElementById("train").style.visibility='visible';
-	}
   });
 
   // When the B button is pressed, add the current frame
@@ -160,7 +155,6 @@ function setupButtons() {
         select('#loss').html('Loss: ' + loss);
       } else {
         select('#loss').html('Done Training! Final Loss: ' + loss);
-		document.getElementById("buttonPredict").style.visibility='visible';
       }
     });
   });
