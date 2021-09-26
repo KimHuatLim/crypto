@@ -4,51 +4,10 @@
 <meta charset='utf-8'>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/crypto/assets/css/style.css?v=dd19e085006208ac196126f25eba19b4174ff7e5">
 <title>Welcome to WingsMaker-crypto | crypto</title>
+<link rel="stylesheet" href="https://wingsmaker.github.io/crypto/menu_style.css">
 <style>
 body { font-family: Arial, Helvetica, sans-serif; background-color: white; margin: 0; }
-.navbar { overflow: hidden; background-color: #333; }
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-.menu { font-size: 16px; } 
-.subnav { float: left; overflow: hidden; }
-.subnav .subnavbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-.navbar a:hover, .subnav:hover .subnavbtn { background-color: red; }
-.subnav-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  background-color: red;
-  font-size: 16px;
-  width: 80%;
-  z-index: 1;
-}
-.subnav-content a { float: left; color: white; text-decoration: none; font-size: 16px;}
-.subnav-content a:hover { background-color: #eee; color: black; }
-.subnav:hover .subnav-content { display: block; }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-}
 #searchbar {
   position: absolute;
   top: 260px;
@@ -124,6 +83,7 @@ ul {
 
 </body>
 <script>
+	menu_type = 1; // 0 for horizontal , 1 for vertical
 	fetch("https://wingsmaker.github.io/crypto/menu.csv").then( r => r.text() ).then( t => processData(t) );
 	function processData(csv) {
 		var menu_txt = '<div class="navbar" id="myNavbar">';
@@ -144,8 +104,13 @@ ul {
 							menu_txt += '</div></div>';
 						}
 						menu_grp = linedata[0];
-						menu_txt += '<div class="subnav"><button class="subnavbtn">' + menu_grp;
-						menu_txt += '<i class="fa fa-caret-down"></i></button><div class="subnav-content">';
+						if (menu_type==0) {
+							menu_txt += '<div class="subnav"><button class="subnavbtn">' + menu_grp;
+							menu_txt += '<i class="fa fa-caret-down"></i></button><div class="subnav-content">';
+						} else {
+							menu_txt += '<div class="dropdown"><button class="dropbtn">' + menu_grp;
+							menu_txt += '<i class="fa fa-caret-down"></i></button><div class="dropdown-content">';
+						}
 					}
 				}
 				if (linedata[1] == '') {
