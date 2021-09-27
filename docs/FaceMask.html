@@ -5,15 +5,16 @@
         <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.js"></script>
     </head>
     <body>
+		<h1 id="status">Loading Virtual Face Mask...</h1>
         <canvas id="output"></canvas>
         <video id="webcam" playsinline style="
             visibility: hidden;
             width: auto;
             height: auto;
             ">
-        </video>
-        <h1 id="status">Loading Virtual Face Mask...</h1>
+        </video>        
         <script>
+
 		const FaceTriangles = [
 			127, 34, 139, 11, 0, 37, 232, 231, 120, 72, 37, 39, 128, 121, 47, 232, 121,
 			128, 104, 69, 67, 175, 171, 148, 157, 154, 155, 118, 50, 101, 73, 39, 40, 9,
@@ -183,7 +184,7 @@
 			290, 460, 401, 376, 435, 309, 250, 392, 376, 411, 433, 453, 341, 464, 357,
 			453, 465, 343, 357, 412, 437, 343, 399, 344, 360, 440, 420, 437, 456, 360,
 			420, 363, 361, 401, 288, 265, 372, 353, 390, 339, 249, 339, 448, 255];
-	
+
         function setText( text ) {
             document.getElementById( "status" ).innerText = text;
         }
@@ -206,10 +207,10 @@
 
         let output = null;
         let model = null;
+		let video = document.getElementById( "webcam" );
 
         async function setupWebcam() {
             return new Promise( ( resolve, reject ) => {
-                const webcamElement = document.getElementById( "webcam" );
                 const navigatorAny = navigator;
                 navigator.getUserMedia = navigator.getUserMedia ||
                 navigatorAny.webkitGetUserMedia || navigatorAny.mozGetUserMedia ||
@@ -217,8 +218,8 @@
                 if( navigator.getUserMedia ) {
                     navigator.getUserMedia( { video: true },
                         stream => {
-                            webcamElement.srcObject = stream;
-                            webcamElement.addEventListener( "loadeddata", resolve, false );
+                            video.srcObject = stream;
+                            video.addEventListener( "loadeddata", resolve, false );
                         },
                     error => reject());
                 }
@@ -229,22 +230,19 @@
         }
 
         async function trackFace() {
-            const video = document.getElementById( "webcam" );
             const faces = await model.estimateFaces( {
                 input: video,
                 returnTensors: false,
                 flipHorizontal: false,
-            });
+            });			
             output.drawImage(
                 video,
                 0, 0, video.width, video.height,
                 0, 0, video.width, video.height
             );
-
+			setText( "Drawing the mask" );
             faces.forEach( face => {
                 setText( `Face Tracking Confidence: ${face.faceInViewConfidence.toFixed( 3 )}` );
-
-                // Draw the bounding box
                 const x1 = face.boundingBox.topLeft[ 0 ];
                 const y1 = face.boundingBox.topLeft[ 1 ];
                 const x2 = face.boundingBox.bottomRight[ 0 ];
@@ -255,8 +253,6 @@
                 drawLine( output, x2, y1, x2, y2 );
                 drawLine( output, x1, y2, x2, y2 );
                 drawLine( output, x1, y1, x1, y2 );
-
-                // Draw the face mesh
                 const keypoints = face.scaledMesh;
                 for( let i = 0; i < FaceTriangles.length / 3; i++ ) {
                     let pointA = keypoints[ FaceTriangles[ i * 3 ] ];
@@ -265,13 +261,11 @@
                     drawTriangle( output, pointA[ 0 ], pointA[ 1 ], pointB[ 0 ], pointB[ 1 ], pointC[ 0 ], pointC[ 1 ] );
                 }
             });
-
             requestAnimationFrame( trackFace );
         }
 
         (async () => {
             await setupWebcam();
-            const video = document.getElementById( "webcam" );
             video.play();
             let videoWidth = video.videoWidth;
             let videoHeight = video.videoHeight;
@@ -293,10 +287,8 @@
             model = await faceLandmarksDetection.load(
                 faceLandmarksDetection.SupportedPackages.mediapipeFacemesh
             );
-
-            setText( "Loaded!" );
-
-            trackFace();
+            trackFace();			
+			setText( "" );
         })();
         </script>
     </body>
