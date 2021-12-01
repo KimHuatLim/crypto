@@ -1,7 +1,7 @@
 # crypto
 
 
-[Sheet Encryption](https://wingsmaker.github.io/crypto/cryptosheet.html)
+[Sheet Encryption](https://wingsmaker.github.io/Github/cryptosheet.html)
 
 
 Webapp for excel sheet encryption.
